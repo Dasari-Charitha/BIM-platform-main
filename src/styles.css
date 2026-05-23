@@ -1,0 +1,1145 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
+@import "tailwindcss";
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system definition.
+ *
+ * The @theme inline block maps CSS custom properties to Tailwind utility
+ * classes (e.g. --color-primary -> bg-primary, text-primary).
+ *
+ * The :root and .dark blocks define the actual color values using oklch.
+ * All colors MUST use oklch format.
+ *
+ * To add a new semantic color:
+ * 1. Add the variable to :root (light value) and .dark (dark value)
+ * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(0.98 0.01 80);
+  --foreground: oklch(0.2 0.05 265);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.2 0.05 265);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.2 0.05 265);
+  --primary: oklch(0.25 0.09 265);
+  --primary-foreground: oklch(0.98 0.01 80);
+  --secondary: oklch(0.72 0.11 75);
+  --secondary-foreground: oklch(0.2 0.05 265);
+  --muted: oklch(0.95 0.02 80);
+  --muted-foreground: oklch(0.45 0.04 265);
+  --accent: oklch(0.72 0.11 75);
+  --accent-foreground: oklch(0.2 0.05 265);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(0.88 0.03 80);
+  --input: oklch(0.92 0.02 80);
+  --ring: oklch(0.72 0.11 75);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.984 0.003 247.858);
+  --sidebar-foreground: oklch(0.129 0.042 264.695);
+  --sidebar-primary: oklch(0.208 0.042 265.755);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.968 0.007 247.896);
+  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
+  --sidebar-border: oklch(0.929 0.013 255.508);
+  --sidebar-ring: oklch(0.704 0.04 256.788);
+}
+
+.dark {
+  --background: oklch(0.16 0.05 265);
+  --foreground: oklch(0.97 0.02 80);
+  --card: oklch(0.22 0.06 265);
+  --card-foreground: oklch(0.97 0.02 80);
+  --popover: oklch(0.22 0.06 265);
+  --popover-foreground: oklch(0.97 0.02 80);
+  --primary: oklch(0.78 0.13 75);
+  --primary-foreground: oklch(0.18 0.05 265);
+  --secondary: oklch(0.78 0.13 75);
+  --secondary-foreground: oklch(0.18 0.05 265);
+  --muted: oklch(0.26 0.05 265);
+  --muted-foreground: oklch(0.75 0.04 80);
+  --accent: oklch(0.78 0.13 75);
+  --accent-foreground: oklch(0.18 0.05 265);
+  --destructive: oklch(0.65 0.22 27);
+  --destructive-foreground: oklch(0.98 0.01 80);
+  --border: oklch(0.78 0.13 75 / 25%);
+  --input: oklch(1 0 0 / 12%);
+  --ring: oklch(0.78 0.13 75);
+  --chart-1: oklch(0.78 0.13 75);
+  --chart-2: oklch(0.6 0.12 265);
+  --chart-3: oklch(0.85 0.1 90);
+  --chart-4: oklch(0.45 0.1 265);
+  --chart-5: oklch(0.7 0.15 50);
+  --sidebar: oklch(0.208 0.042 265.755);
+  --sidebar-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.279 0.041 260.031);
+  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.551 0.027 264.364);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
+}
+
+/* SkillArion BIM global theme */
+
+:root {
+  --background: #f8f6ef;
+  --foreground: #17152f;
+
+  --card: #ffffff;
+  --card-foreground: #17152f;
+
+  --popover: #ffffff;
+  --popover-foreground: #17152f;
+
+  --primary: #201c64;
+  --primary-foreground: #ffffff;
+
+  --secondary: #b69a4a;
+  --secondary-foreground: #17152f;
+
+  --muted: #efe9d8;
+  --muted-foreground: #656070;
+
+  --accent: #b69a4a;
+  --accent-foreground: #17152f;
+
+  --border: #e3dfd3;
+  --input: #e8e2d4;
+  --ring: #b69a4a;
+
+  --chart-1: #201c64;
+  --chart-2: #b69a4a;
+  --chart-3: #5c5798;
+  --chart-4: #d8c17a;
+  --chart-5: #7b764f;
+}
+
+.dark {
+  --background: #12102e;
+  --foreground: #f8f6ef;
+
+  --card: #1b1844;
+  --card-foreground: #f8f6ef;
+
+  --popover: #1b1844;
+  --popover-foreground: #f8f6ef;
+
+  --primary: #b69a4a;
+  --primary-foreground: #17152f;
+
+  --secondary: #2f2a76;
+  --secondary-foreground: #f8f6ef;
+
+  --muted: #28245f;
+  --muted-foreground: #d7cfb2;
+
+  --accent: #b69a4a;
+  --accent-foreground: #17152f;
+
+  --border: rgba(182, 154, 74, 0.28);
+  --input: rgba(255, 255, 255, 0.12);
+  --ring: #b69a4a;
+}
+
+body {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+/* BIM landing page */
+
+.bim-page {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(182, 154, 74, 0.16), transparent 28%),
+    linear-gradient(180deg, #fbf8ef, #f3efe3);
+  color: #17152f;
+}
+
+.bim-navbar {
+  position: sticky;
+  top: 14px;
+  z-index: 50;
+  width: calc(100% - 40px);
+  max-width: 1280px;
+  margin: 14px auto 0;
+  padding: 16px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  border: 1px solid rgba(227, 223, 211, 0.8);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.84);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 18px 45px rgba(32, 28, 100, 0.12);
+}
+
+.bim-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.bim-brand img {
+  width: 58px;
+  height: 58px;
+  border-radius: 14px;
+  background: white;
+  object-fit: contain;
+  box-shadow: 0 10px 25px rgba(32, 28, 100, 0.14);
+}
+
+.bim-brand h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.bim-brand p {
+  margin: 4px 0 0;
+  color: #b69a4a;
+  font-weight: 800;
+}
+
+.bim-navbar nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.bim-navbar nav a {
+  padding: 10px 12px;
+  border-radius: 999px;
+  color: #17152f;
+  text-decoration: none;
+  font-weight: 800;
+  transition: 0.25s ease;
+}
+
+.bim-navbar nav a:hover {
+  background: rgba(182, 154, 74, 0.16);
+  color: #201c64;
+}
+
+.bim-login-btn {
+  padding: 13px 18px;
+  border-radius: 8px;
+  background: #201c64;
+  color: white;
+  text-decoration: none;
+  font-weight: 900;
+  box-shadow: 0 14px 30px rgba(32, 28, 100, 0.25);
+  transition: 0.25s ease;
+}
+
+.bim-login-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 42px rgba(32, 28, 100, 0.34);
+}
+
+.bim-hero {
+  position: relative;
+  overflow: hidden;
+  width: calc(100% - 40px);
+  max-width: 1280px;
+  min-height: 620px;
+  margin: 18px auto 0;
+  padding: 100px 64px;
+  border-radius: 26px;
+  color: white;
+  background:
+    radial-gradient(circle at 78% 20%, rgba(182, 154, 74, 0.35), transparent 24%),
+    radial-gradient(circle at 18% 78%, rgba(255, 255, 255, 0.14), transparent 28%),
+    linear-gradient(135deg, #15113f, #201c64 55%, #39308a);
+  box-shadow: 0 30px 80px rgba(32, 28, 100, 0.26);
+}
+
+.bim-hero::before {
+  content: "";
+  position: absolute;
+  right: 70px;
+  top: 90px;
+  width: 330px;
+  height: 330px;
+  border-radius: 50%;
+  border: 1px solid rgba(182, 154, 74, 0.45);
+}
+
+.bim-hero::after {
+  content: "BIM";
+  position: absolute;
+  right: 110px;
+  bottom: 70px;
+  color: rgba(255, 255, 255, 0.08);
+  font-size: 170px;
+  font-weight: 900;
+}
+
+.bim-hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+.bim-eyebrow {
+  margin: 0 0 12px;
+  color: #b69a4a;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.bim-hero h1 {
+  max-width: 900px;
+  margin: 0 0 20px;
+  font-size: clamp(48px, 7vw, 86px);
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+.bim-hero-text {
+  max-width: 760px;
+  color: #e6e3ef;
+  line-height: 1.7;
+  font-size: 19px;
+}
+
+.bim-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  max-width: 900px;
+  margin-top: 32px;
+}
+
+.bim-stats div {
+  padding: 22px;
+  border: 1px solid rgba(182, 154, 74, 0.45);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.11);
+  backdrop-filter: blur(16px);
+  transition: 0.25s ease;
+}
+
+.bim-stats div:hover {
+  transform: translateY(-8px);
+  background: rgba(255, 255, 255, 0.17);
+}
+
+.bim-stats h3 {
+  margin: 0;
+  font-size: 36px;
+  font-weight: 900;
+}
+
+.bim-stats p {
+  margin: 6px 0 0;
+  font-weight: 800;
+}
+
+.bim-section,
+.bim-roadmap {
+  width: calc(100% - 40px);
+  max-width: 1280px;
+  margin: 22px auto 0;
+  padding: 70px 50px;
+  border: 1px solid rgba(227, 223, 211, 0.9);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: 0 22px 60px rgba(32, 28, 100, 0.09);
+}
+
+.bim-section h2,
+.bim-roadmap h2 {
+  max-width: 850px;
+  margin: 0 0 16px;
+  font-size: 38px;
+  line-height: 1.15;
+  font-weight: 900;
+}
+
+.bim-section p {
+  max-width: 900px;
+  color: #666276;
+  line-height: 1.7;
+}
+
+.bim-show-btn {
+  border: none;
+  background: transparent;
+  color: #201c64;
+  padding: 0;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.bim-show-btn:hover {
+  color: #b69a4a;
+}
+
+.bim-learn-grid,
+.bim-tracker,
+.bim-roadmap-grid {
+  display: grid;
+  gap: 16px;
+  margin-top: 34px;
+}
+
+.bim-learn-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.bim-tracker {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.bim-roadmap-grid {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.bim-card,
+.bim-step,
+.bim-roadmap-card,
+.bim-module-card,
+.bim-phase-tabs button {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #e3dfd3;
+  border-radius: 18px;
+  background: white;
+  transition: 0.25s ease;
+  box-shadow: 0 16px 38px rgba(32, 28, 100, 0.08);
+}
+
+.bim-card,
+.bim-step,
+.bim-roadmap-card {
+  padding: 24px;
+}
+
+.bim-card:hover,
+.bim-step:hover,
+.bim-roadmap-card:hover,
+.bim-module-card:hover,
+.bim-phase-tabs button:hover {
+  transform: translateY(-8px);
+  border-color: #b69a4a;
+  box-shadow: 0 26px 58px rgba(32, 28, 100, 0.16);
+}
+
+.bim-card span,
+.bim-step span,
+.bim-roadmap-card span {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 18px;
+  border-radius: 50%;
+  background: #201c64;
+  color: white;
+  font-weight: 900;
+}
+
+.bim-step.complete span {
+  background: #b69a4a;
+}
+
+.bim-step.current span {
+  background: #201c64;
+}
+
+.bim-step.locked {
+  opacity: 0.65;
+}
+
+.bim-card h3,
+.bim-step h3,
+.bim-roadmap-card h3 {
+  margin: 0 0 10px;
+  font-size: 21px;
+  font-weight: 900;
+}
+
+.bim-phase-tabs {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+  margin-top: 34px;
+}
+
+.bim-phase-tabs button {
+  min-height: 110px;
+  padding: 16px;
+  color: #17152f;
+  text-align: left;
+  cursor: pointer;
+}
+
+.bim-phase-tabs button span {
+  display: block;
+  margin-bottom: 8px;
+  color: #b69a4a;
+  font-size: 13px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.bim-phase-tabs button strong {
+  display: block;
+  line-height: 1.35;
+}
+
+.bim-phase-tabs button.active {
+  background:
+    radial-gradient(circle at top right, rgba(182, 154, 74, 0.3), transparent 35%),
+    #201c64;
+  color: white;
+}
+
+.bim-phase-viewer {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.bim-phase-summary {
+  padding: 26px;
+  border-radius: 20px;
+  color: white;
+  background:
+    radial-gradient(circle at top right, rgba(182, 154, 74, 0.32), transparent 36%),
+    linear-gradient(145deg, #15113f, #201c64);
+}
+
+.bim-phase-summary p {
+  margin: 0 0 12px;
+  color: #b69a4a;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.bim-phase-summary h3 {
+  margin: 0 0 14px;
+  font-size: 30px;
+  line-height: 1.15;
+}
+
+.bim-phase-summary span {
+  color: #e6e3ef;
+  line-height: 1.7;
+}
+
+.bim-phase-modules {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.bim-module-card {
+  padding: 18px;
+}
+
+.bim-module-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.bim-module-top span {
+  color: #b69a4a;
+  font-size: 13px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.bim-module-top b {
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #f1ecdc;
+  color: #666276;
+  font-size: 12px;
+}
+
+.bim-module-card.complete .bim-module-top b {
+  background: rgba(182, 154, 74, 0.2);
+  color: #b69a4a;
+}
+
+.bim-module-card.current .bim-module-top b {
+  background: rgba(32, 28, 100, 0.12);
+  color: #201c64;
+}
+
+.bim-module-card h4 {
+  margin: 12px 0;
+  font-size: 18px;
+  line-height: 1.35;
+}
+
+.bim-module-card p {
+  margin: 0 0 10px;
+  color: #17152f;
+  font-weight: 800;
+}
+
+.bim-mini-progress {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.bim-mini-progress i {
+  height: 9px;
+  border-radius: 999px;
+  background: #e4dfd0;
+}
+
+.bim-mini-progress i.done {
+  background: #b69a4a;
+}
+
+.bim-module-card.current .bim-mini-progress i.done {
+  background: #201c64;
+}
+
+.bim-module-card small {
+  color: #666276;
+  font-weight: 700;
+}
+
+.bim-roadmap {
+  margin-bottom: 40px;
+  color: white;
+  background:
+    radial-gradient(circle at top left, rgba(182, 154, 74, 0.18), transparent 32%),
+    #201c64;
+  box-shadow: 0 30px 80px rgba(32, 28, 100, 0.25);
+}
+
+.bim-roadmap-card {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(182, 154, 74, 0.35);
+}
+
+.bim-roadmap-card p {
+  color: #e9e6f0;
+}
+
+@media (max-width: 980px) {
+  .bim-navbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .bim-navbar nav {
+    flex-wrap: wrap;
+  }
+
+  .bim-hero,
+  .bim-section,
+  .bim-roadmap {
+    width: calc(100% - 24px);
+    padding: 55px 24px;
+  }
+
+  .bim-hero {
+    min-height: auto;
+  }
+
+  .bim-hero::before,
+  .bim-hero::after {
+    display: none;
+  }
+
+  .bim-stats,
+  .bim-learn-grid,
+  .bim-tracker,
+  .bim-roadmap-grid,
+  .bim-phase-tabs,
+  .bim-phase-modules {
+    grid-template-columns: 1fr;
+  }
+
+  .bim-phase-viewer {
+    grid-template-columns: 1fr;
+  }
+}
+
+.dark .bim-page {
+  background:
+    radial-gradient(circle at top left, rgba(182, 154, 74, 0.18), transparent 28%),
+    linear-gradient(180deg, #12102e, #191641);
+  color: #f8f6ef;
+}
+
+.dark .bim-navbar,
+.dark .bim-section {
+  background: rgba(27, 24, 68, 0.82);
+  border-color: rgba(182, 154, 74, 0.28);
+}
+
+.dark .bim-navbar nav a,
+.dark .bim-brand h2,
+.dark .bim-section h2 {
+  color: #f8f6ef;
+}
+
+.dark .bim-section p,
+.dark .bim-card p,
+.dark .bim-step p,
+.dark .bim-module-card small {
+  color: #d7cfb2;
+}
+
+.dark .bim-card,
+.dark .bim-step,
+.dark .bim-module-card,
+.dark .bim-phase-tabs button {
+  background: #1b1844;
+  border-color: rgba(182, 154, 74, 0.24);
+  color: #f8f6ef;
+}
+
+.dark .bim-module-card p,
+.dark .bim-module-card h4 {
+  color: #f8f6ef;
+}
+
+.bim-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.bim-theme-toggle {
+  border: 1px solid #201c64;
+  color: #201c64;
+  background: transparent;
+}
+
+.bim-theme-toggle:hover {
+  background: #201c64;
+  color: white;
+}
+
+.dark .bim-navbar {
+  background: rgba(27, 24, 68, 0.86);
+  border-color: rgba(182, 154, 74, 0.3);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.28);
+}
+
+.dark .bim-navbar nav a:hover {
+  background: rgba(182, 154, 74, 0.18);
+  color: #b69a4a;
+}
+
+.dark .bim-login-btn {
+  background: #b69a4a;
+  color: #17152f;
+}
+
+.dark .bim-theme-toggle {
+  border-color: #b69a4a;
+  color: #b69a4a;
+}
+
+.dark .bim-theme-toggle:hover {
+  background: #b69a4a;
+  color: #17152f;
+}
+
+.dark .bim-roadmap {
+  background:
+    radial-gradient(circle at top left, rgba(182, 154, 74, 0.2), transparent 32%),
+    #12102e;
+  border-color: rgba(182, 154, 74, 0.3);
+}
+
+.dark .bim-roadmap h2,
+.dark .bim-roadmap-card h3 {
+  color: #f8f6ef;
+}
+
+.dark .bim-roadmap-card {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(182, 154, 74, 0.28);
+}
+
+.dark .bim-roadmap-card p {
+  color: #d7cfb2;
+}
+
+.dark .bim-phase-summary {
+  background:
+    radial-gradient(circle at top right, rgba(182, 154, 74, 0.28), transparent 36%),
+    linear-gradient(145deg, #171344, #28245f);
+}
+
+.dark .bim-phase-tabs button.active {
+  background:
+    radial-gradient(circle at top right, rgba(182, 154, 74, 0.35), transparent 35%),
+    #b69a4a;
+  color: #17152f;
+}
+
+.dark .bim-module-top b {
+  background: rgba(182, 154, 74, 0.18);
+  color: #d7cfb2;
+}
+
+.dark .bim-mini-progress i {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.dark .bim-mini-progress i.done {
+  background: #b69a4a;
+}
+
+@media (max-width: 980px) {
+  .bim-nav-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+/* Clear light/dark difference for BIM landing */
+
+.bim-page {
+  background:
+    radial-gradient(circle at top left, rgba(182, 154, 74, 0.18), transparent 30%),
+    linear-gradient(180deg, #fbf8ef 0%, #f4efdf 100%);
+}
+
+.bim-hero {
+  color: #17152f;
+  background:
+    radial-gradient(circle at 78% 20%, rgba(182, 154, 74, 0.2), transparent 24%),
+    radial-gradient(circle at 18% 78%, rgba(32, 28, 100, 0.08), transparent 28%),
+    linear-gradient(135deg, #fffdf7, #f4eedb 55%, #ebe1c4);
+  border: 1px solid rgba(182, 154, 74, 0.28);
+  box-shadow: 0 30px 80px rgba(32, 28, 100, 0.12);
+}
+
+.bim-hero h1 {
+  color: #201c64;
+}
+
+.bim-hero-text {
+  color: #4e4a5f;
+}
+
+.bim-hero::after {
+  color: rgba(32, 28, 100, 0.08);
+}
+
+.bim-stats div {
+  color: #201c64;
+  background: rgba(255, 255, 255, 0.72);
+  border-color: rgba(182, 154, 74, 0.42);
+  box-shadow: 0 16px 38px rgba(32, 28, 100, 0.08);
+}
+
+.bim-stats div:hover {
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.bim-section {
+  background: rgba(255, 255, 255, 0.82);
+}
+
+.bim-roadmap {
+  background:
+    radial-gradient(circle at top left, rgba(182, 154, 74, 0.18), transparent 32%),
+    linear-gradient(135deg, #201c64, #31297e);
+}
+
+/* Dark mode overrides */
+.dark .bim-page {
+  background:
+    radial-gradient(circle at top left, rgba(182, 154, 74, 0.18), transparent 28%),
+    linear-gradient(180deg, #12102e, #191641);
+}
+
+.dark .bim-hero {
+  color: white;
+  background:
+    radial-gradient(circle at 78% 20%, rgba(182, 154, 74, 0.35), transparent 24%),
+    radial-gradient(circle at 18% 78%, rgba(255, 255, 255, 0.14), transparent 28%),
+    linear-gradient(135deg, #15113f, #201c64 55%, #39308a);
+  border-color: rgba(182, 154, 74, 0.2);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.32);
+}
+
+.dark .bim-hero h1 {
+  color: white;
+}
+
+.dark .bim-hero-text {
+  color: #e6e3ef;
+}
+
+.dark .bim-hero::after {
+  color: rgba(255, 255, 255, 0.08);
+}
+
+.dark .bim-stats div {
+  color: white;
+  background: rgba(255, 255, 255, 0.11);
+  border-color: rgba(182, 154, 74, 0.45);
+}
+
+.dark .bim-stats div:hover {
+  background: rgba(255, 255, 255, 0.17);
+}
+
+/* Premium card and button effects */
+
+.bim-login-btn,
+.bim-phase-tabs button,
+.bim-card,
+.bim-step,
+.bim-module-card,
+.bim-roadmap-card,
+.bim-stats div {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+
+/* Button shine effect */
+.bim-login-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.bim-login-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 80%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.35),
+    transparent
+  );
+  transition: 0.5s ease;
+}
+
+.bim-login-btn:hover::before {
+  left: 120%;
+}
+
+/* Premium card glow */
+.bim-card::before,
+.bim-step::before,
+.bim-module-card::before,
+.bim-roadmap-card::before,
+.bim-phase-tabs button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(182, 154, 74, 0.18),
+    transparent 45%
+  );
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+.bim-card:hover::before,
+.bim-step:hover::before,
+.bim-module-card:hover::before,
+.bim-roadmap-card:hover::before,
+.bim-phase-tabs button:hover::before {
+  opacity: 1;
+}
+
+.bim-card > *,
+.bim-step > *,
+.bim-module-card > *,
+.bim-roadmap-card > *,
+.bim-phase-tabs button > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Stronger hover lift */
+.bim-card:hover,
+.bim-step:hover,
+.bim-module-card:hover,
+.bim-roadmap-card:hover,
+.bim-phase-tabs button:hover,
+.bim-stats div:hover {
+  transform: translateY(-10px) scale(1.01);
+}
+
+/* Gold focus border */
+.bim-card:hover,
+.bim-step:hover,
+.bim-module-card:hover,
+.bim-roadmap-card:hover,
+.bim-phase-tabs button:hover {
+  border-color: #b69a4a;
+  box-shadow:
+    0 24px 60px rgba(32, 28, 100, 0.16),
+    0 0 0 1px rgba(182, 154, 74, 0.18);
+}
+
+/* Active phase looks more selected */
+.bim-phase-tabs button.active {
+  transform: translateY(-4px);
+  box-shadow:
+    0 24px 60px rgba(32, 28, 100, 0.22),
+    0 0 0 2px rgba(182, 154, 74, 0.3);
+}
+
+/* Progress bar animation */
+.bim-mini-progress i.done {
+  position: relative;
+  overflow: hidden;
+}
+
+.bim-mini-progress i.done::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.55),
+    transparent
+  );
+  animation: progress-shine 1.8s infinite;
+}
+
+@keyframes progress-shine {
+  from {
+    transform: translateX(-120%);
+  }
+  to {
+    transform: translateX(120%);
+  }
+}
+
+/* Number circle glow */
+.bim-card:hover span,
+.bim-step:hover span,
+.bim-roadmap-card:hover span {
+  box-shadow: 0 0 0 8px rgba(182, 154, 74, 0.16);
+}
+
+/* Navbar smoother hover */
+.bim-navbar nav a {
+  position: relative;
+}
+
+.bim-navbar nav a::after {
+  content: "";
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 5px;
+  height: 2px;
+  border-radius: 999px;
+  background: #b69a4a;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.25s ease;
+}
+
+.bim-navbar nav a:hover::after {
+  transform: scaleX(1);
+}
+
+/* Dark mode glow refinement */
+.dark .bim-card:hover,
+.dark .bim-step:hover,
+.dark .bim-module-card:hover,
+.dark .bim-roadmap-card:hover,
+.dark .bim-phase-tabs button:hover {
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.28),
+    0 0 0 1px rgba(182, 154, 74, 0.28),
+    0 0 28px rgba(182, 154, 74, 0.12);
+}
+
+.dark .bim-login-btn::before {
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.42),
+    transparent
+  );
+}
