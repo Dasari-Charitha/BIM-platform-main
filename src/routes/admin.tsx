@@ -18,7 +18,6 @@ import {
 } from "@/components/ui/dialog";
 import logo from "@/assets/logo.jpg";
 import { ThemeToggle } from "@/components/theme-toggle";
-import { CertificatePreview } from "@/components/certificate-preview";
 import { bimCurriculum } from "@/data/bimCurriculum";
 import {
   ArrowLeft,
@@ -36,6 +35,7 @@ import {
   Phone,
   Search,
   SearchCheck,
+  Trash2,
   UserCheck,
   Users,
   X,
@@ -60,11 +60,6 @@ type ProgressRecord = {
   updated_at: string;
 };
 
-type CertificateRecord = {
-  name: string;
-  issuedAt: string;
-};
-
 function AdminDashboard() {
   const { user, role, loading, signOut } = useAuth();
   const navigate = useNavigate();
@@ -73,10 +68,7 @@ function AdminDashboard() {
   const [collegeFilter, setCollegeFilter] = useState("__all");
   const [studentStatus, setStudentStatus] = useState<string | null>(null);
   const [progressRecords, setProgressRecords] = useState<ProgressRecord[]>([]);
-  const [certificateNames, setCertificateNames] = useState<Record<string, string>>({});
-  const [certificateStatus, setCertificateStatus] = useState<string | null>(null);
   const [selectedStudent, setSelectedStudent] = useState<Student | null>(null);
-  const [selectedCertificateStudent, setSelectedCertificateStudent] = useState<Student | null>(null);
 
   const refreshStudents = useCallback(async () => {
     setStudentStatus(null);
@@ -237,16 +229,6 @@ function AdminDashboard() {
     [progressRecords],
   );
 
-  const certificatesByStudent = useMemo(
-    () =>
-      new Map(
-        progressRecords
-          .filter((record) => record.subject === "certificate")
-          .map((record) => [record.student_id, parseCertificate(record.notes)]),
-      ),
-    [progressRecords],
-  );
-
   const completedCourseStudents = useMemo(
     () => students.filter((student) => (courseProgressByStudent.get(student.id) || 0) >= 100),
     [courseProgressByStudent, students],
@@ -275,43 +257,53 @@ function AdminDashboard() {
     [phases],
   );
 
-  async function issueCertificate(student: Student) {
-    const courseScore = courseProgressByStudent.get(student.id) || 0;
-    if (courseScore < 100) {
-      setCertificateStatus("Certificate unlocks only after the student completes the full course.");
-      return;
-    }
-
-    const certificateName = (certificateNames[student.id] || student.full_name || "").trim();
-    if (!certificateName) {
-      setCertificateStatus("Enter the student name to print on the certificate.");
-      return;
-    }
-
-    setCertificateStatus(null);
-    const notes = JSON.stringify({
-      name: certificateName,
-      issuedAt: new Date().toISOString(),
-    });
-
-    const { error } = await supabase.from("progress").upsert(
-      {
-        student_id: student.id,
-        subject: "certificate",
-        score: 100,
-        notes,
-        updated_at: new Date().toISOString(),
-      },
-      { onConflict: "student_id,subject" }
+  async function removeStudent(student: Student) {
+    const label = student.full_name || student.email || "this student";
+    const confirmed = window.confirm(
+      `Remove ${label} from the candidate list? This removes their app profile, role, and progress records.`
     );
 
-    if (error) {
-      setCertificateStatus(`Could not issue certificate: ${error.message}`);
+    if (!confirmed) return;
+
+    setStudentStatus(null);
+
+    const progressDelete = await supabase
+      .from("progress")
+      .delete()
+      .eq("student_id", student.id);
+
+    if (progressDelete.error) {
+      setStudentStatus(`Could not remove progress records: ${progressDelete.error.message}`);
       return;
+    }
+
+    const roleDelete = await supabase
+      .from("user_roles")
+      .delete()
+      .eq("user_id", student.id)
+      .eq("role", "student");
+
+    if (roleDelete.error) {
+      setStudentStatus(`Could not remove student role: ${roleDelete.error.message}`);
+      return;
+    }
+
+    const profileDelete = await supabase
+      .from("profiles")
+      .delete()
+      .eq("id", student.id);
+
+    if (profileDelete.error) {
+      setStudentStatus(`Could not remove student profile: ${profileDelete.error.message}`);
+      return;
+    }
+
+    if (selectedStudent?.id === student.id) {
+      setSelectedStudent(null);
     }
 
     await refreshStudents();
-    setCertificateStatus(`Certificate issued for ${certificateName}.`);
+    window.alert(`${label} was removed from the candidate list.`);
   }
 
   return (
@@ -393,7 +385,7 @@ function AdminDashboard() {
           />
           <MetricCard
             icon={Award}
-            title="Certificate Ready"
+            title="Course Completed"
             value={completedCourseStudents.length}
             detail="Students at 100% course completion"
           />
@@ -408,7 +400,7 @@ function AdminDashboard() {
                   Admin Overview
                 </CardTitle>
                 <CardDescription>
-                  Manage students, review curriculum coverage, and issue certificates after full course completion.
+                  Manage students, review curriculum coverage, and monitor course completion.
                 </CardDescription>
               </div>
               <Badge className="bg-secondary text-secondary-foreground">
@@ -420,10 +412,9 @@ function AdminDashboard() {
           <CardContent className="p-0">
             <Tabs defaultValue="students" className="w-full">
               <div className="border-b border-border px-6 pt-5">
-                <TabsList className="grid w-full max-w-2xl grid-cols-3">
+                <TabsList className="grid w-full max-w-xl grid-cols-2">
                   <TabsTrigger value="students">Students</TabsTrigger>
                   <TabsTrigger value="phases">Phases</TabsTrigger>
-                  <TabsTrigger value="certificates">Certification</TabsTrigger>
                 </TabsList>
               </div>
 
@@ -506,6 +497,7 @@ function AdminDashboard() {
                         students={filteredStudents}
                         courseProgressByStudent={courseProgressByStudent}
                         onViewStudent={setSelectedStudent}
+                        onRemoveStudent={removeStudent}
                       />
                     )}
                   </>
@@ -560,40 +552,6 @@ function AdminDashboard() {
                 </Card>
               </TabsContent>
 
-              <TabsContent value="certificates" className="m-0 space-y-5 p-6">
-                <div className="flex flex-wrap items-start justify-between gap-4">
-                  <div>
-                    <h2 className="text-xl font-bold text-primary">Certification</h2>
-                    <p className="text-sm text-muted-foreground">
-                      Certificates unlock only after the student completes every lesson quiz and module quiz.
-                    </p>
-                  </div>
-                  <Badge variant="outline">
-                    {completedCourseStudents.length} ready
-                  </Badge>
-                </div>
-
-                {certificateStatus && (
-                  <div className="rounded-2xl border border-secondary/30 bg-secondary/10 p-4 text-sm text-foreground">
-                    {certificateStatus}
-                  </div>
-                )}
-
-                {students.length === 0 ? (
-                  <EmptyState
-                    icon={Award}
-                    title="No students available"
-                    text="Student certificate controls will appear after students sign up."
-                  />
-                ) : (
-                  <CertificateTable
-                    students={students}
-                    courseProgressByStudent={courseProgressByStudent}
-                    certificatesByStudent={certificatesByStudent}
-                    onOpenCertificate={setSelectedCertificateStudent}
-                  />
-                )}
-              </TabsContent>
             </Tabs>
           </CardContent>
         </Card>
@@ -605,43 +563,9 @@ function AdminDashboard() {
               ? courseProgressByStudent.get(selectedStudent.id) || 0
               : 0
           }
+          onRemoveStudent={removeStudent}
           onOpenChange={(open) => {
             if (!open) setSelectedStudent(null);
-          }}
-        />
-        <CertificateDialog
-          student={selectedCertificateStudent}
-          courseScore={
-            selectedCertificateStudent
-              ? courseProgressByStudent.get(selectedCertificateStudent.id) || 0
-              : 0
-          }
-          certificate={
-            selectedCertificateStudent
-              ? certificatesByStudent.get(selectedCertificateStudent.id) || null
-              : null
-          }
-          certificateName={
-            selectedCertificateStudent
-              ? certificateNames[selectedCertificateStudent.id] ??
-                selectedCertificateStudent.full_name ??
-                ""
-              : ""
-          }
-          onCertificateNameChange={(value) => {
-            if (!selectedCertificateStudent) return;
-            setCertificateNames((current) => ({
-              ...current,
-              [selectedCertificateStudent.id]: value,
-            }));
-          }}
-          onIssueCertificate={() => {
-            if (selectedCertificateStudent) {
-              issueCertificate(selectedCertificateStudent);
-            }
-          }}
-          onOpenChange={(open) => {
-            if (!open) setSelectedCertificateStudent(null);
           }}
         />
       </main>
@@ -680,10 +604,12 @@ function StudentTable({
   students,
   courseProgressByStudent,
   onViewStudent,
+  onRemoveStudent,
 }: {
   students: Student[];
   courseProgressByStudent: Map<string, number>;
   onViewStudent: (student: Student) => void;
+  onRemoveStudent: (student: Student) => void;
 }) {
   return (
     <div className="overflow-hidden rounded-2xl border border-border bg-card">
@@ -727,9 +653,18 @@ function StudentTable({
                       {courseScore}%
                     </Badge>
                   </td>
-                  <td className="px-4 py-3 text-right">
+                  <td className="space-x-2 px-4 py-3 text-right">
                     <Button size="sm" variant="outline" onClick={() => onViewStudent(student)}>
                       View
+                    </Button>
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      className="border-destructive/40 text-destructive hover:bg-destructive hover:text-destructive-foreground"
+                      onClick={() => onRemoveStudent(student)}
+                    >
+                      <Trash2 className="mr-1 h-3.5 w-3.5" />
+                      Remove
                     </Button>
                   </td>
                 </tr>
@@ -745,10 +680,12 @@ function StudentTable({
 function StudentDetailsDialog({
   student,
   courseScore,
+  onRemoveStudent,
   onOpenChange,
 }: {
   student: Student | null;
   courseScore: number;
+  onRemoveStudent: (student: Student) => void;
   onOpenChange: (open: boolean) => void;
 }) {
   if (!student) return null;
@@ -802,168 +739,15 @@ function StudentDetailsDialog({
                 <Phone className="mr-2 h-4 w-4" /> Call
               </a>
             </Button>
+            <Button
+              size="sm"
+              variant="outline"
+              className="border-destructive/40 text-destructive hover:bg-destructive hover:text-destructive-foreground"
+              onClick={() => onRemoveStudent(student)}
+            >
+              <Trash2 className="mr-2 h-4 w-4" /> Remove Candidate
+            </Button>
           </div>
-        </div>
-      </DialogContent>
-    </Dialog>
-  );
-}
-
-function CertificateTable({
-  students,
-  courseProgressByStudent,
-  certificatesByStudent,
-  onOpenCertificate,
-}: {
-  students: Student[];
-  courseProgressByStudent: Map<string, number>;
-  certificatesByStudent: Map<string, CertificateRecord | null>;
-  onOpenCertificate: (student: Student) => void;
-}) {
-  return (
-    <div className="overflow-hidden rounded-2xl border border-border bg-card">
-      <div className="overflow-x-auto">
-        <table className="w-full min-w-[820px] text-left text-sm">
-          <thead className="border-b border-border bg-muted/40 text-xs uppercase tracking-wide text-muted-foreground">
-            <tr>
-              <th className="px-4 py-3 font-semibold">Student</th>
-              <th className="px-4 py-3 font-semibold">Email</th>
-              <th className="px-4 py-3 font-semibold">Course</th>
-              <th className="px-4 py-3 font-semibold">Certificate</th>
-              <th className="px-4 py-3 font-semibold">Issued Name</th>
-              <th className="px-4 py-3 text-right font-semibold">Action</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-border">
-            {students.map((student) => {
-              const courseScore = courseProgressByStudent.get(student.id) || 0;
-              const isReady = courseScore >= 100;
-              const certificate = certificatesByStudent.get(student.id);
-
-              return (
-                <tr key={student.id} className="transition hover:bg-muted/30">
-                  <td className="px-4 py-3">
-                    <div className="font-semibold text-primary">
-                      {student.full_name || "Student"}
-                    </div>
-                  </td>
-                  <td className="px-4 py-3 text-muted-foreground">
-                    {student.email}
-                  </td>
-                  <td className="px-4 py-3">
-                    <Badge variant={isReady ? "default" : "outline"}>
-                      {courseScore}% complete
-                    </Badge>
-                  </td>
-                  <td className="px-4 py-3">
-                    <Badge
-                      variant={certificate ? "default" : isReady ? "outline" : "secondary"}
-                    >
-                      {certificate ? "Issued" : isReady ? "Ready" : "Locked"}
-                    </Badge>
-                  </td>
-                  <td className="px-4 py-3">
-                    {certificate?.name || "-"}
-                  </td>
-                  <td className="px-4 py-3 text-right">
-                    <Button
-                      size="sm"
-                      variant={isReady ? "default" : "outline"}
-                      onClick={() => onOpenCertificate(student)}
-                    >
-                      {certificate ? "Update" : isReady ? "Issue" : "View"}
-                    </Button>
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </div>
-    </div>
-  );
-}
-
-function CertificateDialog({
-  student,
-  courseScore,
-  certificate,
-  certificateName,
-  onCertificateNameChange,
-  onIssueCertificate,
-  onOpenChange,
-}: {
-  student: Student | null;
-  courseScore: number;
-  certificate: CertificateRecord | null;
-  certificateName: string;
-  onCertificateNameChange: (value: string) => void;
-  onIssueCertificate: () => void;
-  onOpenChange: (open: boolean) => void;
-}) {
-  if (!student) return null;
-
-  const isReady = courseScore >= 100;
-
-  return (
-    <Dialog open={Boolean(student)} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-xl">
-        <DialogHeader>
-          <DialogTitle className="text-primary">
-            {student.full_name || "Student"} Certificate
-          </DialogTitle>
-          <DialogDescription>{student.email}</DialogDescription>
-        </DialogHeader>
-
-        <div className="space-y-5">
-          <div className="rounded-xl border border-border p-4">
-            <div className="mb-2 flex items-center justify-between text-sm">
-              <span className="text-muted-foreground">Course completion</span>
-              <span className="font-semibold text-primary">{courseScore}%</span>
-            </div>
-            <Progress value={courseScore} />
-          </div>
-
-          <div className="space-y-2">
-            <label className="text-sm font-medium text-primary">
-              Name to print on certificate
-            </label>
-            <Input
-              value={certificateName}
-              onChange={(event) => onCertificateNameChange(event.target.value)}
-              placeholder="Enter certificate name"
-              disabled={!isReady}
-            />
-          </div>
-
-          {certificate ? (
-            <CertificatePreview
-              studentName={certificate.name}
-              studentEmail={student.email}
-              issuedAt={certificate.issuedAt}
-              certificateId={`BIM-${student.id.slice(0, 8).toUpperCase()}`}
-            />
-          ) : isReady ? (
-            <CertificatePreview
-              studentName={certificateName || student.full_name || "Student"}
-              studentEmail={student.email}
-              certificateId={`BIM-${student.id.slice(0, 8).toUpperCase()}`}
-              showPrintButton={false}
-            />
-          ) : (
-            <p className="text-sm text-muted-foreground">
-              Locked until full course completion.
-            </p>
-          )}
-
-          <Button
-            onClick={onIssueCertificate}
-            disabled={!isReady}
-            className="w-full"
-          >
-            <Award className="mr-2 h-4 w-4" />
-            {certificate ? "Update certificate" : "Issue certificate"}
-          </Button>
         </div>
       </DialogContent>
     </Dialog>
@@ -1010,21 +794,6 @@ function getProfileCompletion(student: Student) {
   const filled = fields.filter((value) => Boolean(value?.trim())).length;
 
   return Math.round((filled / fields.length) * 100);
-}
-
-function parseCertificate(notes: string | null): CertificateRecord | null {
-  if (!notes) return null;
-
-  try {
-    const parsed = JSON.parse(notes) as Partial<CertificateRecord>;
-    if (!parsed.name || !parsed.issuedAt) return null;
-    return {
-      name: parsed.name,
-      issuedAt: parsed.issuedAt,
-    };
-  } catch {
-    return null;
-  }
 }
 
 function EmptyState({

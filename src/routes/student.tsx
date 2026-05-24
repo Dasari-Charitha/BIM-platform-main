@@ -11,6 +11,14 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
+import { Input } from "@/components/ui/input";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import logo from "@/assets/logo.jpg";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { CertificatePreview } from "@/components/certificate-preview";
@@ -79,6 +87,9 @@ function StudentDashboard() {
 
   const [profile, setProfile] = useState<Profile | null>(null);
   const [certificate, setCertificate] = useState<CertificateRecord | null>(null);
+  const [certificateDialogOpen, setCertificateDialogOpen] = useState(false);
+  const [certificateName, setCertificateName] = useState("");
+  const [certificateStatus, setCertificateStatus] = useState<string | null>(null);
   const [remoteCourseScore, setRemoteCourseScore] = useState(0);
 
   useEffect(() => {
@@ -121,7 +132,11 @@ function StudentDashboard() {
       .select("*")
       .eq("id", user.id)
       .maybeSingle()
-      .then(({ data }) => setProfile(data as Profile | null));
+      .then(({ data }) => {
+        const nextProfile = data as Profile | null;
+        setProfile(nextProfile);
+        setCertificateName((current) => current || nextProfile?.full_name || "");
+      });
 
     supabase
       .from("progress")
@@ -129,7 +144,11 @@ function StudentDashboard() {
       .eq("student_id", user.id)
       .eq("subject", "certificate")
       .maybeSingle()
-      .then(({ data }) => setCertificate(parseCertificate(data?.notes || null)));
+      .then(({ data }) => {
+        const nextCertificate = parseCertificate(data?.notes || null);
+        setCertificate(nextCertificate);
+        setCertificateName((current) => current || nextCertificate?.name || "");
+      });
 
     supabase
       .from("progress")
@@ -455,6 +474,56 @@ function StudentDashboard() {
     completeQuizAfterReview();
   }
 
+  async function saveStudentCertificateName() {
+    if (!user || !isCourseComplete) return;
+
+    const name = certificateName.trim();
+    if (!name) {
+      setCertificateStatus("Enter the name exactly as it should appear on the certificate.");
+      return;
+    }
+
+    const issuedAt = certificate?.issuedAt || new Date().toISOString();
+    const notes = JSON.stringify({ name, issuedAt });
+    const userId = user.id;
+
+    const { data: existingCertificate, error: findError } = await supabase
+      .from("progress")
+      .select("id")
+      .eq("student_id", userId)
+      .eq("subject", "certificate")
+      .maybeSingle();
+
+    if (findError) {
+      setCertificateStatus(`Could not check certificate record: ${findError.message}`);
+      return;
+    }
+
+    const payload = {
+      student_id: userId,
+      subject: "certificate",
+      score: 100,
+      notes,
+      updated_at: new Date().toISOString(),
+    };
+
+    const { error } = existingCertificate
+      ? await supabase
+          .from("progress")
+          .update(payload)
+          .eq("id", existingCertificate.id)
+      : await supabase.from("progress").insert(payload);
+
+    if (error) {
+      setCertificateStatus(`Could not save certificate name: ${error.message}`);
+      return;
+    }
+
+    setCertificate({ name, issuedAt });
+    setCertificateStatus(null);
+    setCertificateDialogOpen(false);
+  }
+
   function completeQuizAfterReview() {
     if (quizMode === "module") {
       const nextModule = bimCurriculum.find(
@@ -587,17 +656,43 @@ function StudentDashboard() {
                     {certificate
                       ? "Your certificate is ready to print or save as PDF."
                       : displayedProgress >= 100
-                        ? "Certificate is ready for admin issue."
-                        : "Certificate unlocks after full course completion and admin issue."}
+                        ? "Click to enter your certificate name."
+                        : "Certificate unlocks after full course completion."}
                   </p>
                 </div>
                 <span className="rounded-full border border-border px-3 py-1 text-sm font-semibold text-primary">
-                  {certificate ? "Issued" : displayedProgress >= 100 ? "Pending issue" : "Locked"}
+                  {certificate ? "Ready" : displayedProgress >= 100 ? "Name required" : "Locked"}
                 </span>
               </div>
 
+              {displayedProgress >= 100 && !certificate && (
+                <Button
+                  type="button"
+                  className="mt-4 w-full sm:w-auto"
+                  onClick={() => {
+                    setCertificateName(profile?.full_name || certificateName);
+                    setCertificateStatus(null);
+                    setCertificateDialogOpen(true);
+                  }}
+                >
+                  Enter certificate name
+                </Button>
+              )}
+
               {certificate && (
                 <div className="mt-4">
+                  <Button
+                    type="button"
+                    variant="outline"
+                    className="mb-4"
+                    onClick={() => {
+                      setCertificateName(certificate.name);
+                      setCertificateStatus(null);
+                      setCertificateDialogOpen(true);
+                    }}
+                  >
+                    Update certificate name
+                  </Button>
                   <CertificatePreview
                     studentName={certificate.name}
                     studentEmail={profile?.email || user?.email}
@@ -666,6 +761,41 @@ function StudentDashboard() {
           />
         )}
       </main>
+
+      <Dialog open={certificateDialogOpen} onOpenChange={setCertificateDialogOpen}>
+        <DialogContent className="max-w-md">
+          <DialogHeader>
+            <DialogTitle className="text-primary">Certificate Name</DialogTitle>
+            <DialogDescription>
+              Enter your name exactly as it should appear on the certificate.
+            </DialogDescription>
+          </DialogHeader>
+
+          <div className="space-y-4">
+            <Input
+              value={certificateName}
+              onChange={(event) => {
+                setCertificateName(event.target.value);
+                setCertificateStatus(null);
+              }}
+              placeholder="Enter your full name"
+            />
+
+            {certificateStatus && (
+              <p className="text-sm text-destructive">{certificateStatus}</p>
+            )}
+
+            <Button
+              type="button"
+              className="w-full"
+              onClick={saveStudentCertificateName}
+              disabled={!isCourseComplete}
+            >
+              Save certificate name
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
