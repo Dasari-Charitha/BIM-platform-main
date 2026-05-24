@@ -79,6 +79,7 @@ function StudentDashboard() {
 
   const [profile, setProfile] = useState<Profile | null>(null);
   const [certificate, setCertificate] = useState<CertificateRecord | null>(null);
+  const [remoteCourseScore, setRemoteCourseScore] = useState(0);
 
   useEffect(() => {
     const timer = window.setInterval(() => setNow(Date.now()), 1000);
@@ -129,6 +130,24 @@ function StudentDashboard() {
       .eq("subject", "certificate")
       .maybeSingle()
       .then(({ data }) => setCertificate(parseCertificate(data?.notes || null)));
+
+    supabase
+      .from("progress")
+      .select("score")
+      .eq("student_id", user.id)
+      .eq("subject", "course_completion")
+      .maybeSingle()
+      .then(({ data }) => {
+        const savedScore = Number(data?.score) || 0;
+        setRemoteCourseScore(savedScore);
+
+        if (savedScore >= 100) {
+          setProgress((current) => ({
+            ...current,
+            ...getCompletedCourseProgress(),
+          }));
+        }
+      });
   }, [user]);
 
   useEffect(() => {
@@ -188,6 +207,7 @@ function StudentDashboard() {
       100
     ).toFixed(1)
   );
+  const displayedProgress = Math.max(overallProgress, remoteCourseScore);
 
   useEffect(() => {
     if (!user) return;
@@ -219,6 +239,7 @@ function StudentDashboard() {
 
       const savedScore = Number(existingProgress?.score) || 0;
       const syncedProgress = Math.max(overallProgress, savedScore);
+      setRemoteCourseScore(syncedProgress);
 
       const payload = {
         student_id: userId,
@@ -316,6 +337,8 @@ function StudentDashboard() {
   }
 
   function getPhaseProgress(phase: string) {
+    if (displayedProgress >= 100) return 100;
+
     const modules = bimCurriculum.filter((module) => module.phase === phase);
 
     const totalSteps = modules.reduce(
@@ -539,7 +562,7 @@ function StudentDashboard() {
             </div>
 
             <div className="grid gap-4 md:grid-cols-4">
-              <Stat label="Overall progress" value={`${overallProgress}%`} />
+              <Stat label="Overall progress" value={`${displayedProgress}%`} />
               <Stat
                 label="Lessons complete"
                 value={`${completedLessons}/${totalLessonQuizzes}`}
@@ -558,13 +581,13 @@ function StudentDashboard() {
                   <p className="mt-1 text-sm text-muted-foreground">
                     {certificate
                       ? "Your certificate is ready to print or save as PDF."
-                      : overallProgress >= 100
+                      : displayedProgress >= 100
                         ? "Certificate is ready for admin issue."
                         : "Certificate unlocks after full course completion and admin issue."}
                   </p>
                 </div>
                 <span className="rounded-full border border-border px-3 py-1 text-sm font-semibold text-primary">
-                  {certificate ? "Issued" : overallProgress >= 100 ? "Pending issue" : "Locked"}
+                  {certificate ? "Issued" : displayedProgress >= 100 ? "Pending issue" : "Locked"}
                 </span>
               </div>
 
@@ -1205,4 +1228,19 @@ function parseCertificate(notes: string | null): CertificateRecord | null {
   } catch {
     return null;
   }
+}
+
+function getCompletedCourseProgress(): Pick<
+  StudentProgress,
+  "completedLessonQuizzes" | "completedModuleQuizzes" | "moduleUnlocks"
+> {
+  return {
+    completedLessonQuizzes: bimCurriculum.flatMap((module) =>
+      module.lessons.map((_, index) => `${module.id}-${index + 1}`)
+    ),
+    completedModuleQuizzes: bimCurriculum.map((module) => module.id),
+    moduleUnlocks: Object.fromEntries(
+      bimCurriculum.map((module) => [String(module.id), Date.now()])
+    ),
+  };
 }
