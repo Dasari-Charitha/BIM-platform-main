@@ -1,6 +1,6 @@
 import { defineConfig } from "vite";
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
-import { nitro } from "nitro/vite";
+import netlify from "@netlify/vite-plugin-tanstack-start";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import tsConfigPaths from "vite-tsconfig-paths";
@@ -8,11 +8,15 @@ import tsConfigPaths from "vite-tsconfig-paths";
 export default defineConfig({
   plugins: [
     tailwindcss(),
-    tsConfigPaths({ projects: ["./tsconfig.json"] }),
-    tanstackStart({
-      server: { entry: "server" },
+    tsConfigPaths({
+      projects: ["./tsconfig.json"],
     }),
-    nitro(),
+    tanstackStart({
+      server: {
+        entry: "server",
+      },
+    }),
+    netlify(),
     react(),
   ],
   server: {
