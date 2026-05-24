@@ -91,6 +91,7 @@ function StudentDashboard() {
   const [certificateName, setCertificateName] = useState("");
   const [certificateStatus, setCertificateStatus] = useState<string | null>(null);
   const [remoteCourseScore, setRemoteCourseScore] = useState(0);
+  const [courseReleasedAt, setCourseReleasedAt] = useState<string | null>(null);
 
   useEffect(() => {
     const timer = window.setInterval(() => setNow(Date.now()), 1000);
@@ -167,6 +168,33 @@ function StudentDashboard() {
           }));
         }
       });
+
+    supabase
+      .from("course_settings")
+      .select("released_at")
+      .eq("id", "bim_course")
+      .maybeSingle()
+      .then(({ data }) => setCourseReleasedAt(data?.released_at || null));
+  }, [user]);
+
+  useEffect(() => {
+    if (!user) return;
+
+    const channel = supabase
+      .channel("student-course-release")
+      .on(
+        "postgres_changes",
+        { event: "*", schema: "public", table: "course_settings" },
+        (payload) => {
+          const next = payload.new as { released_at?: string | null };
+          setCourseReleasedAt(next.released_at || null);
+        }
+      )
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
   }, [user]);
 
   useEffect(() => {
@@ -232,6 +260,10 @@ function StudentDashboard() {
     certificate ? 100 : 0
   );
   const isCourseComplete = displayedProgress >= 100;
+  const courseReleaseTime = courseReleasedAt
+    ? new Date(courseReleasedAt).getTime()
+    : null;
+  const isCourseReleased = Boolean(courseReleaseTime && now >= courseReleaseTime);
 
   useEffect(() => {
     if (!user) return;
@@ -327,21 +359,32 @@ function StudentDashboard() {
     selectedModule.id
   );
 
+  function getScheduledModuleUnlockAt(moduleId: number) {
+    if (!courseReleaseTime) return null;
+
+    return courseReleaseTime + (moduleId - 1) * MODULE_UNLOCK_DELAY_MS;
+  }
+
   function isModuleUnlocked(moduleId: number) {
+    if (isCourseComplete) return true;
+
+    const scheduledUnlockAt = getScheduledModuleUnlockAt(moduleId);
+    if (!scheduledUnlockAt || now < scheduledUnlockAt) return false;
+
     if (moduleId === 1) return true;
+
     if (!progress.completedModuleQuizzes.includes(moduleId - 1)) return false;
 
-    const unlockAt = progress.moduleUnlocks[String(moduleId)];
-    return Boolean(unlockAt && now >= unlockAt);
+    return true;
   }
 
   function getModuleUnlockRemainingSeconds(moduleId: number) {
     if (moduleId === 1 || isModuleUnlocked(moduleId)) return 0;
 
-    const unlockAt = progress.moduleUnlocks[String(moduleId)];
-    if (!unlockAt) return 0;
+    const scheduledUnlockAt = getScheduledModuleUnlockAt(moduleId);
+    if (!scheduledUnlockAt) return 0;
 
-    return Math.max(0, Math.ceil((unlockAt - now) / 1000));
+    return Math.max(0, Math.ceil((scheduledUnlockAt - now) / 1000));
   }
 
   function isLessonUnlocked(moduleId: number, lessonIndex: number) {
@@ -645,6 +688,13 @@ function StudentDashboard() {
               <Stat label="Module duration" value="1 hour" />
             </div>
 
+            {!isCourseReleased && !isCourseComplete && (
+              <div className="rounded-2xl border border-secondary/40 bg-secondary/10 p-4 text-sm font-medium text-primary">
+                The course has not been released yet. Modules will open after
+                the admin releases the course.
+              </div>
+            )}
+
             <div className="rounded-2xl border border-border bg-background/70 p-4">
               <div className="flex flex-wrap items-center justify-between gap-3">
                 <div>
@@ -727,6 +777,7 @@ function StudentDashboard() {
             getModuleLessonCount={getModuleLessonCount}
             isModuleUnlocked={isModuleUnlocked}
             getModuleUnlockRemainingSeconds={getModuleUnlockRemainingSeconds}
+            isCourseReleased={isCourseReleased}
             onBack={() => setViewMode("phases")}
             onOpenModule={openModule}
           />
@@ -898,6 +949,7 @@ function ModuleView({
   getModuleLessonCount,
   isModuleUnlocked,
   getModuleUnlockRemainingSeconds,
+  isCourseReleased,
   onBack,
   onOpenModule,
 }: {
@@ -907,6 +959,7 @@ function ModuleView({
   getModuleLessonCount: (moduleId: number) => number;
   isModuleUnlocked: (moduleId: number) => boolean;
   getModuleUnlockRemainingSeconds: (moduleId: number) => number;
+  isCourseReleased: boolean;
   onBack: () => void;
   onOpenModule: (moduleId: number) => void;
 }) {
@@ -920,8 +973,8 @@ function ModuleView({
         <CardTitle className="text-primary">{selectedPhase}</CardTitle>
 
         <CardDescription>
-          Complete one module per day. After a module quiz is completed, the
-          next module unlocks after 24 hours.
+          Complete one module per day. After admin release, each next module
+          unlocks on the 24-hour schedule.
         </CardDescription>
       </CardHeader>
 
@@ -938,8 +991,12 @@ function ModuleView({
           const lessonCount = getModuleLessonCount(module.id);
           const totalSteps = module.lessons.length + 1;
           const lockedMessage =
-            previousComplete && unlockRemainingSeconds > 0
-              ? `Module ${module.id - 1} completed. Module ${module.id} will unlock after ${formatDuration(unlockRemainingSeconds)}.`
+            !isCourseReleased
+              ? "Locked until admin releases the course."
+              : unlockRemainingSeconds > 0
+                ? `Module ${module.id} will unlock after ${formatDuration(unlockRemainingSeconds)}.`
+                : module.id > 1 && !previousComplete
+                  ? `Complete module ${module.id - 1} to unlock this module.`
               : "Locked";
 
           return (

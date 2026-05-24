@@ -35,6 +35,7 @@ import {
   Phone,
   Search,
   SearchCheck,
+  Send,
   Trash2,
   UserCheck,
   Users,
@@ -60,6 +61,12 @@ type ProgressRecord = {
   updated_at: string;
 };
 
+type CourseRelease = {
+  released_at: string | null;
+  released_by: string | null;
+  updated_at: string | null;
+};
+
 function AdminDashboard() {
   const { user, role, loading, signOut } = useAuth();
   const navigate = useNavigate();
@@ -69,6 +76,8 @@ function AdminDashboard() {
   const [studentStatus, setStudentStatus] = useState<string | null>(null);
   const [progressRecords, setProgressRecords] = useState<ProgressRecord[]>([]);
   const [selectedStudent, setSelectedStudent] = useState<Student | null>(null);
+  const [courseRelease, setCourseRelease] = useState<CourseRelease | null>(null);
+  const [releaseStatus, setReleaseStatus] = useState<string | null>(null);
 
   const refreshStudents = useCallback(async () => {
     setStudentStatus(null);
@@ -124,6 +133,21 @@ function AdminDashboard() {
     setProgressRecords((progressRows as ProgressRecord[]) || []);
   }, []);
 
+  const refreshCourseRelease = useCallback(async () => {
+    const { data, error } = await supabase
+      .from("course_settings")
+      .select("released_at, released_by, updated_at")
+      .eq("id", "bim_course")
+      .maybeSingle();
+
+    if (error) {
+      setReleaseStatus(`Could not read release settings: ${error.message}`);
+      return;
+    }
+
+    setCourseRelease(data);
+  }, []);
+
   useEffect(() => {
     if (!loading) {
       if (!user) navigate({ to: "/auth" });
@@ -135,7 +159,8 @@ function AdminDashboard() {
     if (role !== "admin") return;
 
     refreshStudents();
-  }, [role, refreshStudents]);
+    refreshCourseRelease();
+  }, [role, refreshCourseRelease, refreshStudents]);
 
   useEffect(() => {
     if (role !== "admin") return;
@@ -144,21 +169,30 @@ function AdminDashboard() {
       .channel("admin-student-records")
       .on("postgres_changes", { event: "*", schema: "public", table: "profiles" }, refreshStudents)
       .on("postgres_changes", { event: "*", schema: "public", table: "user_roles" }, refreshStudents)
+      .on("postgres_changes", { event: "*", schema: "public", table: "course_settings" }, refreshCourseRelease)
       .subscribe();
 
     const handleVisibility = () => {
-      if (document.visibilityState === "visible") refreshStudents();
+      if (document.visibilityState === "visible") {
+        refreshStudents();
+        refreshCourseRelease();
+      }
     };
 
-    window.addEventListener("focus", refreshStudents);
+    const handleFocus = () => {
+      refreshStudents();
+      refreshCourseRelease();
+    };
+
+    window.addEventListener("focus", handleFocus);
     document.addEventListener("visibilitychange", handleVisibility);
 
     return () => {
       supabase.removeChannel(channel);
-      window.removeEventListener("focus", refreshStudents);
+      window.removeEventListener("focus", handleFocus);
       document.removeEventListener("visibilitychange", handleVisibility);
     };
-  }, [role, refreshStudents]);
+  }, [role, refreshCourseRelease, refreshStudents]);
 
   const phases = useMemo(
     () => Array.from(new Set(bimCurriculum.map((module) => module.phase))),
@@ -256,6 +290,48 @@ function AdminDashboard() {
       }),
     [phases],
   );
+
+  const releaseDate = courseRelease?.released_at
+    ? new Date(courseRelease.released_at)
+    : null;
+  const releaseSummary = releaseDate
+    ? `Released on ${releaseDate.toLocaleDateString()} at ${releaseDate.toLocaleTimeString([], {
+        hour: "2-digit",
+        minute: "2-digit",
+      })}`
+    : "Not released yet";
+
+  async function releaseCourse() {
+    if (!user) return;
+
+    const confirmed = window.confirm(
+      "Release the BIM course now? Candidates will get module 1 immediately, then one new module every 24 hours."
+    );
+
+    if (!confirmed) return;
+
+    const releasedAt = new Date().toISOString();
+    setReleaseStatus(null);
+
+    const { error } = await supabase.from("course_settings").upsert({
+      id: "bim_course",
+      released_at: releasedAt,
+      released_by: user.id,
+      updated_at: releasedAt,
+    });
+
+    if (error) {
+      setReleaseStatus(`Could not release course: ${error.message}`);
+      return;
+    }
+
+    setCourseRelease({
+      released_at: releasedAt,
+      released_by: user.id,
+      updated_at: releasedAt,
+    });
+    setReleaseStatus("Course released. Module 1 is available now; each next module unlocks every 24 hours.");
+  }
 
   async function removeStudent(student: Student) {
     const label = student.full_name || student.email || "this student";
@@ -389,6 +465,12 @@ function AdminDashboard() {
             value={completedCourseStudents.length}
             detail="Students at 100% course completion"
           />
+          <MetricCard
+            icon={Send}
+            title="Course Release"
+            value={releaseDate ? "Live" : "Locked"}
+            detail={releaseDate ? "One module per day" : "Waiting for admin release"}
+          />
         </section>
 
         <Card className="overflow-hidden border-secondary/30">
@@ -412,9 +494,10 @@ function AdminDashboard() {
           <CardContent className="p-0">
             <Tabs defaultValue="students" className="w-full">
               <div className="border-b border-border px-6 pt-5">
-                <TabsList className="grid w-full max-w-xl grid-cols-2">
+                <TabsList className="grid w-full max-w-2xl grid-cols-3">
                   <TabsTrigger value="students">Students</TabsTrigger>
                   <TabsTrigger value="phases">Phases</TabsTrigger>
+                  <TabsTrigger value="release">Release</TabsTrigger>
                 </TabsList>
               </div>
 
@@ -548,6 +631,44 @@ function AdminDashboard() {
                   <CardContent className="flex flex-wrap items-center gap-3 p-5 text-sm text-foreground">
                     <SearchCheck className="h-5 w-5 text-secondary" />
                     Real student completion analytics will appear here after we connect lesson and quiz progress to Supabase.
+                  </CardContent>
+                </Card>
+              </TabsContent>
+
+              <TabsContent value="release" className="m-0 space-y-5 p-6">
+                <div className="flex flex-wrap items-start justify-between gap-4">
+                  <div>
+                    <h2 className="text-xl font-bold text-primary">Course Release</h2>
+                    <p className="text-sm text-muted-foreground">
+                      Release the course only when candidates should start. After release, module access follows one module per day.
+                    </p>
+                  </div>
+                  <Badge variant={releaseDate ? "default" : "outline"}>
+                    {releaseDate ? "Released" : "Not released"}
+                  </Badge>
+                </div>
+
+                <Card className="border-secondary/30 bg-secondary/10">
+                  <CardContent className="space-y-4 p-5">
+                    <div className="flex flex-wrap items-center justify-between gap-4">
+                      <div>
+                        <p className="font-semibold text-primary">{releaseSummary}</p>
+                        <p className="mt-1 text-sm text-muted-foreground">
+                          Module 1 unlocks immediately. Module 2 unlocks after 24 hours, module 3 after 48 hours, and the same pattern continues for all 45 modules.
+                        </p>
+                      </div>
+
+                      <Button onClick={releaseCourse} disabled={Boolean(releaseDate)}>
+                        <Send className="mr-2 h-4 w-4" />
+                        {releaseDate ? "Course released" : "Release course"}
+                      </Button>
+                    </div>
+
+                    {releaseStatus && (
+                      <div className="rounded-xl border border-border bg-background/80 p-3 text-sm text-foreground">
+                        {releaseStatus}
+                      </div>
+                    )}
                   </CardContent>
                 </Card>
               </TabsContent>

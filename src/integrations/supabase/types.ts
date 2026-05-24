@@ -14,6 +14,27 @@ export type Database = {
   }
   public: {
     Tables: {
+      course_settings: {
+        Row: {
+          id: string
+          released_at: string | null
+          released_by: string | null
+          updated_at: string
+        }
+        Insert: {
+          id: string
+          released_at?: string | null
+          released_by?: string | null
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          released_at?: string | null
+          released_by?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           college_name: string | null
