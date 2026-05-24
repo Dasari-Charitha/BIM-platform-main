@@ -159,10 +159,12 @@ function StudentDashboard() {
   const completedLessons = progress.completedLessonQuizzes.length;
   const completedModules = progress.completedModuleQuizzes.length;
 
-  const overallProgress = Math.round(
-    ((completedLessons + completedModules) /
-      (totalLessonQuizzes + bimCurriculum.length)) *
+  const overallProgress = Number(
+    (
+      ((completedLessons + completedModules) /
+        (totalLessonQuizzes + bimCurriculum.length)) *
       100
+    ).toFixed(1)
   );
 
   useEffect(() => {
