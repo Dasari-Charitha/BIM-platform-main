@@ -167,7 +167,6 @@ function StudentDashboard() {
 
   useEffect(() => {
     if (!user) return;
-    const userId = user.id;
 
     const notes = JSON.stringify({
       completedLessonQuizzes: progress.completedLessonQuizzes.length,
@@ -178,40 +177,23 @@ function StudentDashboard() {
       moduleUnlocks: progress.moduleUnlocks,
     });
 
-    async function syncCourseProgress() {
-      const { data: existingProgress, error: findError } = await supabase
-        .from("progress")
-        .select("id")
-        .eq("student_id", userId)
-        .eq("subject", "course_completion")
-        .maybeSingle();
-
-      if (findError) {
-        console.warn("Could not check course progress", findError.message);
-        return;
-      }
-
-      const payload = {
-        student_id: userId,
-        subject: "course_completion",
-        score: overallProgress,
-        notes,
-        updated_at: new Date().toISOString(),
-      };
-
-      const { error } = existingProgress
-        ? await supabase
-            .from("progress")
-            .update(payload)
-            .eq("id", existingProgress.id)
-        : await supabase.from("progress").insert(payload);
-
-      if (error) {
-        console.warn("Could not sync course progress", error.message);
-      }
-    }
-
-    syncCourseProgress();
+    supabase
+      .from("progress")
+      .upsert(
+        {
+          student_id: user.id,
+          subject: "course_completion",
+          score: overallProgress,
+          notes,
+          updated_at: new Date().toISOString(),
+        },
+        { onConflict: "student_id,subject" }
+      )
+      .then(({ error }) => {
+        if (error) {
+          console.warn("Could not sync course progress", error.message);
+        }
+      });
   }, [progress, overallProgress, totalLessonQuizzes, user]);
 
   const lessonKey = `${selectedModule.id}-${selectedLessonIndex + 1}`;
