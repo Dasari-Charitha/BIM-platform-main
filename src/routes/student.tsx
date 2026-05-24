@@ -207,7 +207,12 @@ function StudentDashboard() {
       100
     ).toFixed(1)
   );
-  const displayedProgress = Math.max(overallProgress, remoteCourseScore);
+  const displayedProgress = Math.max(
+    overallProgress,
+    remoteCourseScore,
+    certificate ? 100 : 0
+  );
+  const isCourseComplete = displayedProgress >= 100;
 
   useEffect(() => {
     if (!user) return;
@@ -605,7 +610,13 @@ function StudentDashboard() {
           </CardContent>
         </Card>
 
-        {viewMode === "phases" && (
+        {isCourseComplete ? (
+          <CourseCompletionView
+            completedLessons={totalLessonQuizzes}
+            totalLessonQuizzes={totalLessonQuizzes}
+            completedModules={bimCurriculum.length}
+          />
+        ) : viewMode === "phases" && (
           <PhaseView
             phases={phases}
             getPhaseProgress={getPhaseProgress}
@@ -710,6 +721,41 @@ function PhaseView({
             </button>
           );
         })}
+      </CardContent>
+    </Card>
+  );
+}
+
+function CourseCompletionView({
+  completedLessons,
+  totalLessonQuizzes,
+  completedModules,
+}: {
+  completedLessons: number;
+  totalLessonQuizzes: number;
+  completedModules: number;
+}) {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle className="text-primary">Course Completion</CardTitle>
+        <CardDescription>
+          The full BIM learning path has been completed and the certificate is
+          available above.
+        </CardDescription>
+      </CardHeader>
+
+      <CardContent className="space-y-5">
+        <Progress value={100} />
+
+        <div className="grid gap-4 md:grid-cols-3">
+          <Stat label="Course progress" value="100%" />
+          <Stat
+            label="Lessons complete"
+            value={`${completedLessons}/${totalLessonQuizzes}`}
+          />
+          <Stat label="Modules complete" value={`${completedModules}/45`} />
+        </div>
       </CardContent>
     </Card>
   );
