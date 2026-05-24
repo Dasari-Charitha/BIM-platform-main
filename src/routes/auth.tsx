@@ -40,6 +40,7 @@ function AuthPage() {
   const [tab, setTab] = useState<"login" | "signup">("login");
   const [roleTab, setRoleTab] = useState<"student" | "admin">("student");
   const [submitting, setSubmitting] = useState(false);
+  const [authNotice, setAuthNotice] = useState<string | null>(null);
 
   useEffect(() => {
     if (!loading && user && currentRole) {
@@ -95,7 +96,8 @@ VITE_SUPABASE_PUBLISHABLE_KEY=your_supabase_anon_or_publishable_key`}
       return;
     }
     setSubmitting(true);
-    const { error } = await supabase.auth.signUp({
+    setAuthNotice(null);
+    const { data, error } = await supabase.auth.signUp({
       email: parsed.data.email,
       password: parsed.data.password,
       options: {
@@ -112,6 +114,14 @@ VITE_SUPABASE_PUBLISHABLE_KEY=your_supabase_anon_or_publishable_key`}
     setSubmitting(false);
     if (error) {
       toast.error(error.message);
+      return;
+    }
+    if (!data.session) {
+      const message =
+        "Account created. Please check your email and confirm your account before logging in.";
+      setTab("login");
+      setAuthNotice(message);
+      toast.success(message);
       return;
     }
     toast.success("Account created! Signing you in…");
@@ -131,13 +141,19 @@ VITE_SUPABASE_PUBLISHABLE_KEY=your_supabase_anon_or_publishable_key`}
       return;
     }
     setSubmitting(true);
+    setAuthNotice(null);
     const { data, error } = await supabase.auth.signInWithPassword({
       email: parsed.data.email,
       password: parsed.data.password,
     });
     if (error || !data.user) {
       setSubmitting(false);
-      toast.error(error?.message || "Login failed");
+      const message =
+        error?.message?.toLowerCase().includes("email not confirmed")
+          ? "Please confirm your email before logging in. Check your inbox for the confirmation link."
+          : error?.message || "Login failed";
+      setAuthNotice(message);
+      toast.error(message);
       return;
     }
     const { data: roleRow } = await supabase
@@ -185,6 +201,12 @@ VITE_SUPABASE_PUBLISHABLE_KEY=your_supabase_anon_or_publishable_key`}
             <CardDescription>Sign in or create your BIM learning account</CardDescription>
           </CardHeader>
           <CardContent>
+            {authNotice && (
+              <div className="mb-4 rounded-lg border border-secondary/40 bg-secondary/10 p-3 text-sm font-medium text-primary">
+                {authNotice}
+              </div>
+            )}
+
             <Tabs value={roleTab} onValueChange={(v) => setRoleTab(v as "student" | "admin")} className="mb-4">
               <TabsList className="grid w-full grid-cols-2">
                 <TabsTrigger value="student">Student</TabsTrigger>
