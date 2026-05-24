@@ -36,3 +36,4 @@ dist-ssr
 .env.local
 node_modules/
 .output/
+.netlify
