@@ -9,6 +9,13 @@ import { Progress } from "@/components/ui/progress";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import logo from "@/assets/logo.jpg";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { bimCurriculum } from "@/data/bimCurriculum";
@@ -67,6 +74,7 @@ function AdminDashboard() {
   const [progressRecords, setProgressRecords] = useState<ProgressRecord[]>([]);
   const [certificateNames, setCertificateNames] = useState<Record<string, string>>({});
   const [certificateStatus, setCertificateStatus] = useState<string | null>(null);
+  const [selectedStudent, setSelectedStudent] = useState<Student | null>(null);
 
   const refreshStudents = useCallback(async () => {
     setStudentStatus(null);
@@ -492,11 +500,11 @@ function AdminDashboard() {
                         text="Try clearing the search or choosing a different college."
                       />
                     ) : (
-                      <div className="grid gap-4 lg:grid-cols-2">
-                        {filteredStudents.map((student) => (
-                          <StudentCard key={student.id} student={student} />
-                        ))}
-                      </div>
+                      <StudentTable
+                        students={filteredStudents}
+                        courseProgressByStudent={courseProgressByStudent}
+                        onViewStudent={setSelectedStudent}
+                      />
                     )}
                   </>
                 )}
@@ -652,6 +660,18 @@ function AdminDashboard() {
             </Tabs>
           </CardContent>
         </Card>
+
+        <StudentDetailsDialog
+          student={selectedStudent}
+          courseScore={
+            selectedStudent
+              ? courseProgressByStudent.get(selectedStudent.id) || 0
+              : 0
+          }
+          onOpenChange={(open) => {
+            if (!open) setSelectedStudent(null);
+          }}
+        />
       </main>
     </div>
   );
@@ -684,58 +704,136 @@ function MetricCard({
   );
 }
 
-function StudentCard({ student }: { student: Student }) {
-  const completion = getProfileCompletion(student);
-  const isComplete = completion === 100;
+function StudentTable({
+  students,
+  courseProgressByStudent,
+  onViewStudent,
+}: {
+  students: Student[];
+  courseProgressByStudent: Map<string, number>;
+  onViewStudent: (student: Student) => void;
+}) {
+  return (
+    <div className="overflow-hidden rounded-2xl border border-border bg-card">
+      <div className="overflow-x-auto">
+        <table className="w-full min-w-[900px] text-left text-sm">
+          <thead className="border-b border-border bg-muted/40 text-xs uppercase tracking-wide text-muted-foreground">
+            <tr>
+              <th className="px-4 py-3 font-semibold">Name</th>
+              <th className="px-4 py-3 font-semibold">Email</th>
+              <th className="px-4 py-3 font-semibold">College</th>
+              <th className="px-4 py-3 font-semibold">Contact</th>
+              <th className="px-4 py-3 font-semibold">Profile</th>
+              <th className="px-4 py-3 font-semibold">Course</th>
+              <th className="px-4 py-3 text-right font-semibold">Action</th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-border">
+            {students.map((student) => {
+              const profileCompletion = getProfileCompletion(student);
+              const courseScore = courseProgressByStudent.get(student.id) || 0;
+
+              return (
+                <tr key={student.id} className="transition hover:bg-muted/30">
+                  <td className="px-4 py-3">
+                    <div className="font-semibold text-primary">
+                      {student.full_name || "Student"}
+                    </div>
+                  </td>
+                  <td className="px-4 py-3 text-muted-foreground">
+                    {student.email}
+                  </td>
+                  <td className="px-4 py-3">{student.college_name || "-"}</td>
+                  <td className="px-4 py-3">{student.contact || "-"}</td>
+                  <td className="px-4 py-3">
+                    <Badge variant={profileCompletion === 100 ? "default" : "outline"}>
+                      {profileCompletion}%
+                    </Badge>
+                  </td>
+                  <td className="px-4 py-3">
+                    <Badge variant={courseScore >= 100 ? "default" : "outline"}>
+                      {courseScore}%
+                    </Badge>
+                  </td>
+                  <td className="px-4 py-3 text-right">
+                    <Button size="sm" variant="outline" onClick={() => onViewStudent(student)}>
+                      View
+                    </Button>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
+function StudentDetailsDialog({
+  student,
+  courseScore,
+  onOpenChange,
+}: {
+  student: Student | null;
+  courseScore: number;
+  onOpenChange: (open: boolean) => void;
+}) {
+  if (!student) return null;
+
+  const profileCompletion = getProfileCompletion(student);
 
   return (
-    <Card className="border-border/80 bg-card/80 transition hover:-translate-y-1 hover:border-secondary hover:shadow-lg">
-      <CardContent className="space-y-4 p-5">
-        <div className="flex items-start justify-between gap-3">
-          <div className="flex min-w-0 items-start gap-3">
-            <div className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-primary text-primary-foreground">
-              <GraduationCap className="h-5 w-5" />
+    <Dialog open={Boolean(student)} onOpenChange={onOpenChange}>
+      <DialogContent className="max-w-2xl">
+        <DialogHeader>
+          <DialogTitle className="text-primary">
+            {student.full_name || "Student"}
+          </DialogTitle>
+          <DialogDescription>{student.email}</DialogDescription>
+        </DialogHeader>
+
+        <div className="space-y-5">
+          <div className="grid gap-3 rounded-xl border border-border bg-background/60 p-4 text-sm sm:grid-cols-2">
+            <Info icon={Building2} label="College" value={student.college_name} />
+            <Info icon={Phone} label="Contact" value={student.contact} />
+            <Info icon={CalendarDays} label="Date of Birth" value={student.date_of_birth} />
+            <Info icon={UserCheck} label="Role" value="Student" />
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2">
+            <div className="rounded-xl border border-border p-4">
+              <div className="mb-2 flex items-center justify-between text-sm">
+                <span className="text-muted-foreground">Profile completion</span>
+                <span className="font-semibold text-primary">{profileCompletion}%</span>
+              </div>
+              <Progress value={profileCompletion} />
             </div>
-            <div className="min-w-0">
-              <h3 className="truncate font-bold text-primary">{student.full_name || "Student"}</h3>
-              <p className="truncate text-sm text-muted-foreground">{student.email}</p>
+
+            <div className="rounded-xl border border-border p-4">
+              <div className="mb-2 flex items-center justify-between text-sm">
+                <span className="text-muted-foreground">Course progress</span>
+                <span className="font-semibold text-primary">{courseScore}%</span>
+              </div>
+              <Progress value={courseScore} />
             </div>
           </div>
 
-          <Badge variant={isComplete ? "default" : "outline"}>
-            {isComplete ? "Complete" : `${completion}%`}
-          </Badge>
-        </div>
-
-        <div className="space-y-2">
-          <div className="flex items-center justify-between gap-3 text-xs text-muted-foreground">
-            <span>Profile completion</span>
-            <span>{completion}%</span>
+          <div className="flex flex-wrap gap-2">
+            <Button asChild size="sm" variant="outline">
+              <a href={`mailto:${student.email}`}>
+                <Mail className="mr-2 h-4 w-4" /> Email
+              </a>
+            </Button>
+            <Button asChild size="sm" variant="outline" disabled={!student.contact}>
+              <a href={student.contact ? `tel:${student.contact}` : undefined}>
+                <Phone className="mr-2 h-4 w-4" /> Call
+              </a>
+            </Button>
           </div>
-          <Progress value={completion} />
         </div>
-
-        <div className="grid gap-3 rounded-xl border border-border bg-background/60 p-3 text-sm sm:grid-cols-2">
-          <Info icon={Building2} label="College" value={student.college_name} />
-          <Info icon={Phone} label="Contact" value={student.contact} />
-          <Info icon={CalendarDays} label="Date of Birth" value={student.date_of_birth} />
-          <Info icon={UserCheck} label="Role" value="Student" />
-        </div>
-
-        <div className="flex flex-wrap gap-2">
-          <Button asChild size="sm" variant="outline">
-            <a href={`mailto:${student.email}`}>
-              <Mail className="mr-2 h-4 w-4" /> Email
-            </a>
-          </Button>
-          <Button asChild size="sm" variant="outline" disabled={!student.contact}>
-            <a href={student.contact ? `tel:${student.contact}` : undefined}>
-              <Phone className="mr-2 h-4 w-4" /> Call
-            </a>
-          </Button>
-        </div>
-      </CardContent>
-    </Card>
+      </DialogContent>
+    </Dialog>
   );
 }
 
