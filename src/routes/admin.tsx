@@ -18,6 +18,7 @@ import {
 } from "@/components/ui/dialog";
 import logo from "@/assets/logo.jpg";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { CertificatePreview } from "@/components/certificate-preview";
 import { bimCurriculum } from "@/data/bimCurriculum";
 import {
   ArrowLeft,
@@ -936,19 +937,22 @@ function CertificateDialog({
           </div>
 
           {certificate ? (
-            <div className="rounded-xl border border-secondary/30 bg-secondary/10 p-3 text-sm">
-              <p className="font-semibold text-primary">
-                Certificate issued to {certificate.name}
-              </p>
-              <p className="text-muted-foreground">
-                Issued {new Date(certificate.issuedAt).toLocaleString()}
-              </p>
-            </div>
+            <CertificatePreview
+              studentName={certificate.name}
+              studentEmail={student.email}
+              issuedAt={certificate.issuedAt}
+              certificateId={`BIM-${student.id.slice(0, 8).toUpperCase()}`}
+            />
+          ) : isReady ? (
+            <CertificatePreview
+              studentName={certificateName || student.full_name || "Student"}
+              studentEmail={student.email}
+              certificateId={`BIM-${student.id.slice(0, 8).toUpperCase()}`}
+              showPrintButton={false}
+            />
           ) : (
             <p className="text-sm text-muted-foreground">
-              {isReady
-                ? "Enter the exact name and issue the certificate."
-                : "Locked until full course completion."}
+              Locked until full course completion.
             </p>
           )}
 

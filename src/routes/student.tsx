@@ -13,9 +13,11 @@ import {
 import { Progress } from "@/components/ui/progress";
 import logo from "@/assets/logo.jpg";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { CertificatePreview } from "@/components/certificate-preview";
 import { bimCurriculum, type QuizQuestion } from "@/data/bimCurriculum";
 import {
   ArrowLeft,
+  Award,
   CheckCircle2,
   ChevronRight,
   Clock,
@@ -48,6 +50,11 @@ type Profile = {
   contact: string | null;
 };
 
+type CertificateRecord = {
+  name: string;
+  issuedAt: string;
+};
+
 function StudentDashboard() {
   const { user, role, loading, signOut } = useAuth();
   const navigate = useNavigate();
@@ -71,6 +78,7 @@ function StudentDashboard() {
   });
 
   const [profile, setProfile] = useState<Profile | null>(null);
+  const [certificate, setCertificate] = useState<CertificateRecord | null>(null);
 
   useEffect(() => {
     const timer = window.setInterval(() => setNow(Date.now()), 1000);
@@ -113,6 +121,14 @@ function StudentDashboard() {
       .eq("id", user.id)
       .maybeSingle()
       .then(({ data }) => setProfile(data as Profile | null));
+
+    supabase
+      .from("progress")
+      .select("notes")
+      .eq("student_id", user.id)
+      .eq("subject", "certificate")
+      .maybeSingle()
+      .then(({ data }) => setCertificate(parseCertificate(data?.notes || null)));
   }, [user]);
 
   useEffect(() => {
@@ -527,6 +543,38 @@ function StudentDashboard() {
               />
               <Stat label="Modules complete" value={`${completedModules}/45`} />
               <Stat label="Module duration" value="1 hour" />
+            </div>
+
+            <div className="rounded-2xl border border-border bg-background/70 p-4">
+              <div className="flex flex-wrap items-center justify-between gap-3">
+                <div>
+                  <h3 className="flex items-center gap-2 font-bold text-primary">
+                    <Award className="h-5 w-5 text-secondary" />
+                    Course Certificate
+                  </h3>
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    {certificate
+                      ? "Your certificate is ready to print or save as PDF."
+                      : overallProgress >= 100
+                        ? "Certificate is ready for admin issue."
+                        : "Certificate unlocks after full course completion and admin issue."}
+                  </p>
+                </div>
+                <span className="rounded-full border border-border px-3 py-1 text-sm font-semibold text-primary">
+                  {certificate ? "Issued" : overallProgress >= 100 ? "Pending issue" : "Locked"}
+                </span>
+              </div>
+
+              {certificate && (
+                <div className="mt-4">
+                  <CertificatePreview
+                    studentName={certificate.name}
+                    studentEmail={profile?.email || user?.email}
+                    issuedAt={certificate.issuedAt}
+                    certificateId={`BIM-${(user?.id || "student").slice(0, 8).toUpperCase()}`}
+                  />
+                </div>
+              )}
             </div>
           </CardContent>
         </Card>
@@ -1139,4 +1187,19 @@ function formatDuration(totalSeconds: number) {
   }
 
   return `${seconds}s`;
+}
+
+function parseCertificate(notes: string | null): CertificateRecord | null {
+  if (!notes) return null;
+
+  try {
+    const parsed = JSON.parse(notes) as Partial<CertificateRecord>;
+    if (!parsed.name || !parsed.issuedAt) return null;
+    return {
+      name: parsed.name,
+      issuedAt: parsed.issuedAt,
+    };
+  } catch {
+    return null;
+  }
 }
