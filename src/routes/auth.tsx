@@ -39,6 +39,20 @@ const loginSchema = z.object({
   role: z.enum(["student", "admin"]),
 });
 
+const resetRequestSchema = z.object({
+  email: z.string().trim().email(),
+});
+
+const passwordUpdateSchema = z
+  .object({
+    password: z.string().min(8, "Min 8 characters").max(72),
+    confirm: z.string(),
+  })
+  .refine((d) => d.password === d.confirm, {
+    path: ["confirm"],
+    message: "Passwords do not match",
+  });
+
 function AuthPage() {
   const navigate = useNavigate();
   const { user, role: currentRole, loading } = useAuth();
@@ -46,12 +60,24 @@ function AuthPage() {
   const [roleTab, setRoleTab] = useState<"student" | "admin">("student");
   const [submitting, setSubmitting] = useState(false);
   const [authNotice, setAuthNotice] = useState<string | null>(null);
+  const [forgotPassword, setForgotPassword] = useState(false);
+  const [passwordResetMode, setPasswordResetMode] = useState(isPasswordRecoveryUrl);
 
   useEffect(() => {
+    if (isPasswordRecoveryUrl()) {
+      setPasswordResetMode(true);
+      setTab("login");
+      setAuthNotice("Enter a new password for your account.");
+    }
+  }, []);
+
+  useEffect(() => {
+    if (passwordResetMode) return;
+
     if (!loading && user && currentRole) {
       navigate({ to: currentRole === "admin" ? "/admin" : "/student" });
     }
-  }, [user, currentRole, loading, navigate]);
+  }, [user, currentRole, loading, navigate, passwordResetMode]);
 
   if (!isSupabaseConfigured) {
     return (
@@ -183,6 +209,72 @@ VITE_SUPABASE_PUBLISHABLE_KEY=your_supabase_anon_or_publishable_key`}
     navigate({ to: roleRow.role === "admin" ? "/admin" : "/student" });
   }
 
+  async function handleResetRequest(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const fd = new FormData(e.currentTarget);
+    const parsed = resetRequestSchema.safeParse({
+      email: String(fd.get("reset_email") || ""),
+    });
+
+    if (!parsed.success) {
+      toast.error(parsed.error.errors[0].message);
+      return;
+    }
+
+    setSubmitting(true);
+    setAuthNotice(null);
+    const { error } = await supabase.auth.resetPasswordForEmail(
+      parsed.data.email,
+      {
+        redirectTo: `${window.location.origin}/auth`,
+      }
+    );
+    setSubmitting(false);
+
+    if (error) {
+      toast.error(error.message);
+      return;
+    }
+
+    const message = "Password reset link sent. Check your email.";
+    setAuthNotice(message);
+    toast.success(message);
+  }
+
+  async function handlePasswordUpdate(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const fd = new FormData(e.currentTarget);
+    const parsed = passwordUpdateSchema.safeParse({
+      password: String(fd.get("new_password") || ""),
+      confirm: String(fd.get("new_confirm") || ""),
+    });
+
+    if (!parsed.success) {
+      toast.error(parsed.error.errors[0].message);
+      return;
+    }
+
+    setSubmitting(true);
+    setAuthNotice(null);
+    const { error } = await supabase.auth.updateUser({
+      password: parsed.data.password,
+    });
+    setSubmitting(false);
+
+    if (error) {
+      toast.error(error.message);
+      return;
+    }
+
+    await supabase.auth.signOut();
+    window.history.replaceState({}, document.title, "/auth");
+    setPasswordResetMode(false);
+    setTab("login");
+    const message = "Password updated. Please log in with your new password.";
+    setAuthNotice(message);
+    toast.success(message);
+  }
+
   return (
     <div className="min-h-screen bg-background">
       <div className="container mx-auto flex max-w-md flex-col items-center px-4 py-10">
@@ -219,6 +311,20 @@ VITE_SUPABASE_PUBLISHABLE_KEY=your_supabase_anon_or_publishable_key`}
               </div>
             )}
 
+            {passwordResetMode ? (
+              <form onSubmit={handlePasswordUpdate} className="space-y-4">
+                <FormField id="new_password" label="New Password" type="password" />
+                <FormField
+                  id="new_confirm"
+                  label="Re-enter New Password"
+                  type="password"
+                />
+                <Button type="submit" disabled={submitting} className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
+                  {submitting ? "Updating..." : "Update password"}
+                </Button>
+              </form>
+            ) : (
+              <>
             <Tabs value={roleTab} onValueChange={(v) => setRoleTab(v as "student" | "admin")} className="mb-4">
               <TabsList className="grid w-full grid-cols-2">
                 <TabsTrigger value="student">Student</TabsTrigger>
@@ -246,6 +352,43 @@ VITE_SUPABASE_PUBLISHABLE_KEY=your_supabase_anon_or_publishable_key`}
                     {submitting ? "Signing in…" : `Login as ${roleTab}`}
                   </Button>
                 </form>
+
+                <div className="mt-4 border-t border-border pt-4">
+                  {!forgotPassword ? (
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      className="w-full"
+                      onClick={() => setForgotPassword(true)}
+                    >
+                      Forgot password?
+                    </Button>
+                  ) : (
+                    <form onSubmit={handleResetRequest} className="space-y-3">
+                      <div className="space-y-2">
+                        <Label htmlFor="reset_email">Email</Label>
+                        <Input
+                          id="reset_email"
+                          name="reset_email"
+                          type="email"
+                          required
+                        />
+                      </div>
+                      <div className="grid grid-cols-2 gap-2">
+                        <Button
+                          type="button"
+                          variant="outline"
+                          onClick={() => setForgotPassword(false)}
+                        >
+                          Cancel
+                        </Button>
+                        <Button type="submit" disabled={submitting}>
+                          {submitting ? "Sending..." : "Send link"}
+                        </Button>
+                      </div>
+                    </form>
+                  )}
+                </div>
               </TabsContent>
 
               <TabsContent value="signup">
@@ -267,6 +410,8 @@ VITE_SUPABASE_PUBLISHABLE_KEY=your_supabase_anon_or_publishable_key`}
                 </form>
               </TabsContent>
             </Tabs>
+              </>
+            )}
           </CardContent>
         </Card>
       </div>
@@ -280,5 +425,17 @@ function FormField({ id, label, type = "text" }: { id: string; label: string; ty
       <Label htmlFor={id}>{label}</Label>
       <Input id={id} name={id} type={type} required />
     </div>
+  );
+}
+
+function isPasswordRecoveryUrl() {
+  if (typeof window === "undefined") return false;
+
+  const hashParams = new URLSearchParams(window.location.hash.replace(/^#/, ""));
+  const searchParams = new URLSearchParams(window.location.search);
+
+  return (
+    hashParams.get("type") === "recovery" ||
+    searchParams.get("type") === "recovery"
   );
 }
