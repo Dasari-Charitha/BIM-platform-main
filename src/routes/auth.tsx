@@ -88,25 +88,15 @@ VITE_SUPABASE_PUBLISHABLE_KEY=your_supabase_anon_or_publishable_key`}
     const values = {
       full_name: String(fd.get("full_name") || ""),
       email: String(fd.get("email") || ""),
-      date_of_birth: String(fd.get("date_of_birth") || ""),
-      college_name: String(fd.get("college_name") || ""),
-      contact: String(fd.get("contact") || ""),
       password: String(fd.get("password") || ""),
       confirm: String(fd.get("confirm") || ""),
       role: roleTab,
     };
-    const studentDetails =
-      roleTab === "student"
-        ? {
-            date_of_birth: values.date_of_birth,
-            college_name: values.college_name,
-            contact: values.contact,
-          }
-        : {
-            date_of_birth: null,
-            college_name: null,
-            contact: null,
-          };
+    const studentDetails = {
+      date_of_birth: String(fd.get("date_of_birth") || ""),
+      college_name: String(fd.get("college_name") || ""),
+      contact: String(fd.get("contact") || ""),
+    };
     const parsed =
       roleTab === "student"
         ? studentSignupSchema.safeParse({ ...values, ...studentDetails })
@@ -124,9 +114,11 @@ VITE_SUPABASE_PUBLISHABLE_KEY=your_supabase_anon_or_publishable_key`}
         emailRedirectTo: `${window.location.origin}/`,
         data: {
           full_name: parsed.data.full_name,
-          date_of_birth: studentDetails.date_of_birth,
-          college_name: studentDetails.college_name,
-          contact: studentDetails.contact,
+          date_of_birth:
+            parsed.data.role === "student" ? studentDetails.date_of_birth : null,
+          college_name:
+            parsed.data.role === "student" ? studentDetails.college_name : null,
+          contact: parsed.data.role === "student" ? studentDetails.contact : null,
           role: parsed.data.role,
         },
       },
