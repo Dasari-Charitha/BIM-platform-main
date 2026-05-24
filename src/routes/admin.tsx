@@ -75,6 +75,7 @@ function AdminDashboard() {
   const [certificateNames, setCertificateNames] = useState<Record<string, string>>({});
   const [certificateStatus, setCertificateStatus] = useState<string | null>(null);
   const [selectedStudent, setSelectedStudent] = useState<Student | null>(null);
+  const [selectedCertificateStudent, setSelectedCertificateStudent] = useState<Student | null>(null);
 
   const refreshStudents = useCallback(async () => {
     setStudentStatus(null);
@@ -584,77 +585,12 @@ function AdminDashboard() {
                     text="Student certificate controls will appear after students sign up."
                   />
                 ) : (
-                  <div className="grid gap-4 lg:grid-cols-2">
-                    {students.map((student) => {
-                      const courseScore = courseProgressByStudent.get(student.id) || 0;
-                      const isReady = courseScore >= 100;
-                      const certificate = certificatesByStudent.get(student.id);
-                      const defaultName = certificateNames[student.id] ?? student.full_name ?? "";
-
-                      return (
-                        <Card key={student.id} className="border-border/80">
-                          <CardHeader>
-                            <div className="flex items-start justify-between gap-4">
-                              <div>
-                                <CardTitle className="text-primary">{student.full_name || "Student"}</CardTitle>
-                                <CardDescription>{student.email}</CardDescription>
-                              </div>
-                              <Badge variant={isReady ? "default" : "outline"}>
-                                {isReady ? "Unlocked" : `${courseScore}% complete`}
-                              </Badge>
-                            </div>
-                          </CardHeader>
-                          <CardContent className="space-y-4">
-                            <div className="space-y-2">
-                              <div className="flex items-center justify-between text-xs text-muted-foreground">
-                                <span>Course completion</span>
-                                <span>{courseScore}%</span>
-                              </div>
-                              <Progress value={courseScore} />
-                            </div>
-
-                            <div className="grid gap-3 sm:grid-cols-[1fr_auto]">
-                              <Input
-                                value={defaultName}
-                                onChange={(event) =>
-                                  setCertificateNames((current) => ({
-                                    ...current,
-                                    [student.id]: event.target.value,
-                                  }))
-                                }
-                                placeholder="Name to print on certificate"
-                                disabled={!isReady}
-                              />
-                              <Button
-                                onClick={() => issueCertificate(student)}
-                                disabled={!isReady}
-                              >
-                                <Award className="mr-2 h-4 w-4" />
-                                {certificate ? "Update" : "Issue"}
-                              </Button>
-                            </div>
-
-                            {certificate ? (
-                              <div className="rounded-xl border border-secondary/30 bg-secondary/10 p-3 text-sm">
-                                <p className="font-semibold text-primary">
-                                  Certificate issued to {certificate.name}
-                                </p>
-                                <p className="text-muted-foreground">
-                                  Issued {new Date(certificate.issuedAt).toLocaleString()}
-                                </p>
-                              </div>
-                            ) : (
-                              <p className="text-sm text-muted-foreground">
-                                {isReady
-                                  ? "Enter the exact name and issue the certificate."
-                                  : "Locked until full course completion."}
-                              </p>
-                            )}
-                          </CardContent>
-                        </Card>
-                      );
-                    })}
-                  </div>
+                  <CertificateTable
+                    students={students}
+                    courseProgressByStudent={courseProgressByStudent}
+                    certificatesByStudent={certificatesByStudent}
+                    onOpenCertificate={setSelectedCertificateStudent}
+                  />
                 )}
               </TabsContent>
             </Tabs>
@@ -670,6 +606,41 @@ function AdminDashboard() {
           }
           onOpenChange={(open) => {
             if (!open) setSelectedStudent(null);
+          }}
+        />
+        <CertificateDialog
+          student={selectedCertificateStudent}
+          courseScore={
+            selectedCertificateStudent
+              ? courseProgressByStudent.get(selectedCertificateStudent.id) || 0
+              : 0
+          }
+          certificate={
+            selectedCertificateStudent
+              ? certificatesByStudent.get(selectedCertificateStudent.id) || null
+              : null
+          }
+          certificateName={
+            selectedCertificateStudent
+              ? certificateNames[selectedCertificateStudent.id] ??
+                selectedCertificateStudent.full_name ??
+                ""
+              : ""
+          }
+          onCertificateNameChange={(value) => {
+            if (!selectedCertificateStudent) return;
+            setCertificateNames((current) => ({
+              ...current,
+              [selectedCertificateStudent.id]: value,
+            }));
+          }}
+          onIssueCertificate={() => {
+            if (selectedCertificateStudent) {
+              issueCertificate(selectedCertificateStudent);
+            }
+          }}
+          onOpenChange={(open) => {
+            if (!open) setSelectedCertificateStudent(null);
           }}
         />
       </main>
@@ -831,6 +802,164 @@ function StudentDetailsDialog({
               </a>
             </Button>
           </div>
+        </div>
+      </DialogContent>
+    </Dialog>
+  );
+}
+
+function CertificateTable({
+  students,
+  courseProgressByStudent,
+  certificatesByStudent,
+  onOpenCertificate,
+}: {
+  students: Student[];
+  courseProgressByStudent: Map<string, number>;
+  certificatesByStudent: Map<string, CertificateRecord | null>;
+  onOpenCertificate: (student: Student) => void;
+}) {
+  return (
+    <div className="overflow-hidden rounded-2xl border border-border bg-card">
+      <div className="overflow-x-auto">
+        <table className="w-full min-w-[820px] text-left text-sm">
+          <thead className="border-b border-border bg-muted/40 text-xs uppercase tracking-wide text-muted-foreground">
+            <tr>
+              <th className="px-4 py-3 font-semibold">Student</th>
+              <th className="px-4 py-3 font-semibold">Email</th>
+              <th className="px-4 py-3 font-semibold">Course</th>
+              <th className="px-4 py-3 font-semibold">Certificate</th>
+              <th className="px-4 py-3 font-semibold">Issued Name</th>
+              <th className="px-4 py-3 text-right font-semibold">Action</th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-border">
+            {students.map((student) => {
+              const courseScore = courseProgressByStudent.get(student.id) || 0;
+              const isReady = courseScore >= 100;
+              const certificate = certificatesByStudent.get(student.id);
+
+              return (
+                <tr key={student.id} className="transition hover:bg-muted/30">
+                  <td className="px-4 py-3">
+                    <div className="font-semibold text-primary">
+                      {student.full_name || "Student"}
+                    </div>
+                  </td>
+                  <td className="px-4 py-3 text-muted-foreground">
+                    {student.email}
+                  </td>
+                  <td className="px-4 py-3">
+                    <Badge variant={isReady ? "default" : "outline"}>
+                      {courseScore}% complete
+                    </Badge>
+                  </td>
+                  <td className="px-4 py-3">
+                    <Badge
+                      variant={certificate ? "default" : isReady ? "outline" : "secondary"}
+                    >
+                      {certificate ? "Issued" : isReady ? "Ready" : "Locked"}
+                    </Badge>
+                  </td>
+                  <td className="px-4 py-3">
+                    {certificate?.name || "-"}
+                  </td>
+                  <td className="px-4 py-3 text-right">
+                    <Button
+                      size="sm"
+                      variant={isReady ? "default" : "outline"}
+                      onClick={() => onOpenCertificate(student)}
+                    >
+                      {certificate ? "Update" : isReady ? "Issue" : "View"}
+                    </Button>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
+function CertificateDialog({
+  student,
+  courseScore,
+  certificate,
+  certificateName,
+  onCertificateNameChange,
+  onIssueCertificate,
+  onOpenChange,
+}: {
+  student: Student | null;
+  courseScore: number;
+  certificate: CertificateRecord | null;
+  certificateName: string;
+  onCertificateNameChange: (value: string) => void;
+  onIssueCertificate: () => void;
+  onOpenChange: (open: boolean) => void;
+}) {
+  if (!student) return null;
+
+  const isReady = courseScore >= 100;
+
+  return (
+    <Dialog open={Boolean(student)} onOpenChange={onOpenChange}>
+      <DialogContent className="max-w-xl">
+        <DialogHeader>
+          <DialogTitle className="text-primary">
+            {student.full_name || "Student"} Certificate
+          </DialogTitle>
+          <DialogDescription>{student.email}</DialogDescription>
+        </DialogHeader>
+
+        <div className="space-y-5">
+          <div className="rounded-xl border border-border p-4">
+            <div className="mb-2 flex items-center justify-between text-sm">
+              <span className="text-muted-foreground">Course completion</span>
+              <span className="font-semibold text-primary">{courseScore}%</span>
+            </div>
+            <Progress value={courseScore} />
+          </div>
+
+          <div className="space-y-2">
+            <label className="text-sm font-medium text-primary">
+              Name to print on certificate
+            </label>
+            <Input
+              value={certificateName}
+              onChange={(event) => onCertificateNameChange(event.target.value)}
+              placeholder="Enter certificate name"
+              disabled={!isReady}
+            />
+          </div>
+
+          {certificate ? (
+            <div className="rounded-xl border border-secondary/30 bg-secondary/10 p-3 text-sm">
+              <p className="font-semibold text-primary">
+                Certificate issued to {certificate.name}
+              </p>
+              <p className="text-muted-foreground">
+                Issued {new Date(certificate.issuedAt).toLocaleString()}
+              </p>
+            </div>
+          ) : (
+            <p className="text-sm text-muted-foreground">
+              {isReady
+                ? "Enter the exact name and issue the certificate."
+                : "Locked until full course completion."}
+            </p>
+          )}
+
+          <Button
+            onClick={onIssueCertificate}
+            disabled={!isReady}
+            className="w-full"
+          >
+            <Award className="mr-2 h-4 w-4" />
+            {certificate ? "Update certificate" : "Issue certificate"}
+          </Button>
         </div>
       </DialogContent>
     </Dialog>
