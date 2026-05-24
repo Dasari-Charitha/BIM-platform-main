@@ -27,12 +27,15 @@ export const Route = createFileRoute("/student")({
   component: StudentDashboard,
 });
 
+const MODULE_UNLOCK_DELAY_MS = 24 * 60 * 60 * 1000;
+
 type ViewMode = "phases" | "modules" | "lesson";
 
 type StudentProgress = {
   completedLessonQuizzes: string[];
   completedModuleQuizzes: number[];
   lessonTimers: Record<string, number>;
+  moduleUnlocks: Record<string, number>;
 };
 
 type Profile = {
@@ -60,6 +63,7 @@ function StudentDashboard() {
     completedLessonQuizzes: [],
     completedModuleQuizzes: [],
     lessonTimers: {},
+    moduleUnlocks: {},
   });
 
   const [profile, setProfile] = useState<Profile | null>(null);
@@ -93,6 +97,7 @@ function StudentDashboard() {
         completedLessonQuizzes: parsed.completedLessonQuizzes || [],
         completedModuleQuizzes: parsed.completedModuleQuizzes || [],
         lessonTimers: parsed.lessonTimers || {},
+        moduleUnlocks: parsed.moduleUnlocks || {},
       });
     }
 
@@ -112,6 +117,27 @@ function StudentDashboard() {
       JSON.stringify(progress)
     );
   }, [progress, user]);
+
+  useEffect(() => {
+    setProgress((current) => {
+      let changed = false;
+      const moduleUnlocks = { ...current.moduleUnlocks };
+
+      for (const completedModuleId of current.completedModuleQuizzes) {
+        const nextModuleId = completedModuleId + 1;
+        if (
+          nextModuleId <= bimCurriculum.length &&
+          !moduleUnlocks[String(nextModuleId)]
+        ) {
+          moduleUnlocks[String(nextModuleId)] =
+            Date.now() + MODULE_UNLOCK_DELAY_MS;
+          changed = true;
+        }
+      }
+
+      return changed ? { ...current, moduleUnlocks } : current;
+    });
+  }, [progress.completedModuleQuizzes]);
 
   const phases = Array.from(new Set(bimCurriculum.map((module) => module.phase)));
 
@@ -148,6 +174,7 @@ function StudentDashboard() {
       totalLessonQuizzes,
       totalModuleQuizzes: bimCurriculum.length,
       completedAt: overallProgress === 100 ? new Date().toISOString() : null,
+      moduleUnlocks: progress.moduleUnlocks,
     });
 
     supabase
@@ -192,7 +219,20 @@ function StudentDashboard() {
   );
 
   function isModuleUnlocked(moduleId: number) {
-    return moduleId === 1 || progress.completedModuleQuizzes.includes(moduleId - 1);
+    if (moduleId === 1) return true;
+    if (!progress.completedModuleQuizzes.includes(moduleId - 1)) return false;
+
+    const unlockAt = progress.moduleUnlocks[String(moduleId)];
+    return Boolean(unlockAt && now >= unlockAt);
+  }
+
+  function getModuleUnlockRemainingSeconds(moduleId: number) {
+    if (moduleId === 1 || isModuleUnlocked(moduleId)) return 0;
+
+    const unlockAt = progress.moduleUnlocks[String(moduleId)];
+    if (!unlockAt) return 0;
+
+    return Math.max(0, Math.ceil((unlockAt - now) / 1000));
   }
 
   function isLessonUnlocked(moduleId: number, lessonIndex: number) {
@@ -241,6 +281,15 @@ function StudentDashboard() {
 
     setSelectedModuleId(moduleId);
     setSelectedLessonIndex(0);
+    const key = `${moduleId}-1`;
+    setProgress((current) =>
+      current.lessonTimers[key]
+        ? current
+        : {
+            ...current,
+            lessonTimers: { ...current.lessonTimers, [key]: Date.now() },
+          }
+    );
     setQuizMode(null);
     setAnswers({});
     setShowQuizResult(false);
@@ -319,6 +368,7 @@ function StudentDashboard() {
       const nextModule = bimCurriculum.find(
         (module) => module.id === selectedModule.id + 1
       );
+      const nextModuleUnlockAt = Date.now() + MODULE_UNLOCK_DELAY_MS;
 
       setProgress((current) => ({
         ...current,
@@ -327,19 +377,18 @@ function StudentDashboard() {
         )
           ? current.completedModuleQuizzes
           : [...current.completedModuleQuizzes, selectedModule.id],
-        lessonTimers: nextModule
+        moduleUnlocks: nextModule
           ? {
-              ...current.lessonTimers,
-              [`${nextModule.id}-1`]:
-                current.lessonTimers[`${nextModule.id}-1`] || Date.now(),
+              ...current.moduleUnlocks,
+              [String(nextModule.id)]:
+                current.moduleUnlocks[String(nextModule.id)] || nextModuleUnlockAt,
             }
-          : current.lessonTimers,
+          : current.moduleUnlocks,
       }));
 
       if (nextModule) {
         setSelectedPhase(nextModule.phase);
-        setSelectedModuleId(nextModule.id);
-        setSelectedLessonIndex(0);
+        setViewMode("modules");
       }
     } else {
       const nextLessonIndex = selectedLessonIndex + 1;
@@ -461,6 +510,7 @@ function StudentDashboard() {
             progress={progress}
             getModuleLessonCount={getModuleLessonCount}
             isModuleUnlocked={isModuleUnlocked}
+            getModuleUnlockRemainingSeconds={getModuleUnlockRemainingSeconds}
             onBack={() => setViewMode("phases")}
             onOpenModule={openModule}
           />
@@ -557,6 +607,7 @@ function ModuleView({
   progress,
   getModuleLessonCount,
   isModuleUnlocked,
+  getModuleUnlockRemainingSeconds,
   onBack,
   onOpenModule,
 }: {
@@ -565,6 +616,7 @@ function ModuleView({
   progress: StudentProgress;
   getModuleLessonCount: (moduleId: number) => number;
   isModuleUnlocked: (moduleId: number) => boolean;
+  getModuleUnlockRemainingSeconds: (moduleId: number) => number;
   onBack: () => void;
   onOpenModule: (moduleId: number) => void;
 }) {
@@ -578,8 +630,8 @@ function ModuleView({
         <CardTitle className="text-primary">{selectedPhase}</CardTitle>
 
         <CardDescription>
-          Select an unlocked module. Locked modules open only after completing
-          the previous module quiz.
+          Complete one module per day. After a module quiz is completed, the
+          next module unlocks after 24 hours.
         </CardDescription>
       </CardHeader>
 
@@ -587,8 +639,18 @@ function ModuleView({
         {modules.map((module) => {
           const unlocked = isModuleUnlocked(module.id);
           const complete = progress.completedModuleQuizzes.includes(module.id);
+          const previousComplete =
+            module.id > 1 &&
+            progress.completedModuleQuizzes.includes(module.id - 1);
+          const unlockRemainingSeconds = getModuleUnlockRemainingSeconds(
+            module.id
+          );
           const lessonCount = getModuleLessonCount(module.id);
           const totalSteps = module.lessons.length + 1;
+          const lockedMessage =
+            previousComplete && unlockRemainingSeconds > 0
+              ? `Module ${module.id - 1} completed. Module ${module.id} will unlock after ${formatDuration(unlockRemainingSeconds)}.`
+              : "Locked";
 
           return (
             <button
@@ -630,7 +692,7 @@ function ModuleView({
                   ? "Module quiz complete"
                   : unlocked
                     ? `${lessonCount}/${module.lessons.length} lessons complete · 1 hour`
-                    : "Locked"}
+                    : lockedMessage}
               </p>
             </button>
           );
@@ -984,4 +1046,20 @@ function Info({ label, value }: { label: string; value?: string | null }) {
       <div className="mt-1 font-medium text-foreground">{value || "—"}</div>
     </div>
   );
+}
+
+function formatDuration(totalSeconds: number) {
+  const hours = Math.floor(totalSeconds / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = totalSeconds % 60;
+
+  if (hours > 0) {
+    return `${hours}h ${minutes}m`;
+  }
+
+  if (minutes > 0) {
+    return `${minutes}m ${seconds}s`;
+  }
+
+  return `${seconds}s`;
 }
