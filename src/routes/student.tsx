@@ -207,7 +207,7 @@ function StudentDashboard() {
     async function syncCourseProgress() {
       const { data: existingProgress, error: findError } = await supabase
         .from("progress")
-        .select("id")
+        .select("id, score")
         .eq("student_id", userId)
         .eq("subject", "course_completion")
         .maybeSingle();
@@ -217,10 +217,13 @@ function StudentDashboard() {
         return;
       }
 
+      const savedScore = Number(existingProgress?.score) || 0;
+      const syncedProgress = Math.max(overallProgress, savedScore);
+
       const payload = {
         student_id: userId,
         subject: "course_completion",
-        score: overallProgress,
+        score: syncedProgress,
         notes,
         updated_at: new Date().toISOString(),
       };
