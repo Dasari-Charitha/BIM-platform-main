@@ -15,18 +15,23 @@ import { ArrowLeft } from "lucide-react";
 
 export const Route = createFileRoute("/auth")({ component: AuthPage });
 
-const signupSchema = z
+const baseSignupSchema = z
   .object({
     full_name: z.string().trim().min(2, "Name required").max(100),
     email: z.string().trim().email().max(255),
-    date_of_birth: z.string().min(1, "Date of birth required"),
-    college_name: z.string().trim().min(2, "College required").max(150),
-    contact: z.string().trim().min(7, "Contact required").max(20),
     password: z.string().min(8, "Min 8 characters").max(72),
     confirm: z.string(),
     role: z.enum(["student", "admin"]),
   })
   .refine((d) => d.password === d.confirm, { path: ["confirm"], message: "Passwords do not match" });
+
+const studentSignupSchema = baseSignupSchema.and(
+  z.object({
+    date_of_birth: z.string().min(1, "Date of birth required"),
+    college_name: z.string().trim().min(2, "College required").max(150),
+    contact: z.string().trim().min(7, "Contact required").max(20),
+  })
+);
 
 const loginSchema = z.object({
   email: z.string().trim().email(),
@@ -90,7 +95,22 @@ VITE_SUPABASE_PUBLISHABLE_KEY=your_supabase_anon_or_publishable_key`}
       confirm: String(fd.get("confirm") || ""),
       role: roleTab,
     };
-    const parsed = signupSchema.safeParse(values);
+    const studentDetails =
+      roleTab === "student"
+        ? {
+            date_of_birth: values.date_of_birth,
+            college_name: values.college_name,
+            contact: values.contact,
+          }
+        : {
+            date_of_birth: null,
+            college_name: null,
+            contact: null,
+          };
+    const parsed =
+      roleTab === "student"
+        ? studentSignupSchema.safeParse({ ...values, ...studentDetails })
+        : baseSignupSchema.safeParse(values);
     if (!parsed.success) {
       toast.error(parsed.error.errors[0].message);
       return;
@@ -104,9 +124,9 @@ VITE_SUPABASE_PUBLISHABLE_KEY=your_supabase_anon_or_publishable_key`}
         emailRedirectTo: `${window.location.origin}/`,
         data: {
           full_name: parsed.data.full_name,
-          date_of_birth: parsed.data.date_of_birth,
-          college_name: parsed.data.college_name,
-          contact: parsed.data.contact,
+          date_of_birth: studentDetails.date_of_birth,
+          college_name: studentDetails.college_name,
+          contact: studentDetails.contact,
           role: parsed.data.role,
         },
       },
@@ -118,7 +138,7 @@ VITE_SUPABASE_PUBLISHABLE_KEY=your_supabase_anon_or_publishable_key`}
     }
     if (!data.session) {
       const message =
-        "Account created. Please check your email and confirm your account before logging in.";
+        "Account created. You can now log in with the same email and password.";
       setTab("login");
       setAuthNotice(message);
       toast.success(message);
@@ -150,7 +170,7 @@ VITE_SUPABASE_PUBLISHABLE_KEY=your_supabase_anon_or_publishable_key`}
       setSubmitting(false);
       const message =
         error?.message?.toLowerCase().includes("email not confirmed")
-          ? "Please confirm your email before logging in. Check your inbox for the confirmation link."
+          ? "This account is not active yet. Ask the admin to confirm it or sign up again after email confirmation is disabled."
           : error?.message || "Login failed";
       setAuthNotice(message);
       toast.error(message);
@@ -238,13 +258,17 @@ VITE_SUPABASE_PUBLISHABLE_KEY=your_supabase_anon_or_publishable_key`}
 
               <TabsContent value="signup">
                 <form onSubmit={handleSignup} className="mt-4 space-y-4">
-                  <Field id="full_name" label="Full Name" />
-                  <Field id="email" label="Email" type="email" />
-                  <Field id="date_of_birth" label="Date of Birth" type="date" />
-                  <Field id="college_name" label="College Name" />
-                  <Field id="contact" label="Contact Number" type="tel" />
-                  <Field id="password" label="Password" type="password" />
-                  <Field id="confirm" label="Re-enter Password" type="password" />
+                  <FormField id="full_name" label="Full Name" />
+                  <FormField id="email" label="Email" type="email" />
+                  {roleTab === "student" && (
+                    <>
+                      <FormField id="date_of_birth" label="Date of Birth" type="date" />
+                      <FormField id="college_name" label="College Name" />
+                      <FormField id="contact" label="Contact Number" type="tel" />
+                    </>
+                  )}
+                  <FormField id="password" label="Password" type="password" />
+                  <FormField id="confirm" label="Re-enter Password" type="password" />
                   <Button type="submit" disabled={submitting} className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
                     {submitting ? "Creating…" : `Sign up as ${roleTab}`}
                   </Button>
@@ -258,7 +282,7 @@ VITE_SUPABASE_PUBLISHABLE_KEY=your_supabase_anon_or_publishable_key`}
   );
 }
 
-function Field({ id, label, type = "text" }: { id: string; label: string; type?: string }) {
+function FormField({ id, label, type = "text" }: { id: string; label: string; type?: string }) {
   return (
     <div className="space-y-2">
       <Label htmlFor={id}>{label}</Label>
