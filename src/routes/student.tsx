@@ -35,6 +35,8 @@ type StudentProgress = {
   completedLessonQuizzes: string[];
   completedModuleQuizzes: number[];
   lessonTimers: Record<string, number>;
+  lessonTimerRemaining: Record<string, number>;
+  lessonTimerRunning: Record<string, boolean>;
   moduleUnlocks: Record<string, number>;
 };
 
@@ -63,6 +65,8 @@ function StudentDashboard() {
     completedLessonQuizzes: [],
     completedModuleQuizzes: [],
     lessonTimers: {},
+    lessonTimerRemaining: {},
+    lessonTimerRunning: {},
     moduleUnlocks: {},
   });
 
@@ -97,6 +101,8 @@ function StudentDashboard() {
         completedLessonQuizzes: parsed.completedLessonQuizzes || [],
         completedModuleQuizzes: parsed.completedModuleQuizzes || [],
         lessonTimers: parsed.lessonTimers || {},
+        lessonTimerRemaining: parsed.lessonTimerRemaining || {},
+        lessonTimerRunning: parsed.lessonTimerRunning || {},
         moduleUnlocks: parsed.moduleUnlocks || {},
       });
     }
@@ -177,6 +183,8 @@ function StudentDashboard() {
       totalLessonQuizzes,
       totalModuleQuizzes: bimCurriculum.length,
       completedAt: overallProgress === 100 ? new Date().toISOString() : null,
+      lessonTimerRemaining: progress.lessonTimerRemaining,
+      lessonTimerRunning: progress.lessonTimerRunning,
       moduleUnlocks: progress.moduleUnlocks,
     });
 
@@ -219,16 +227,32 @@ function StudentDashboard() {
   const lessonKey = `${selectedModule.id}-${selectedLessonIndex + 1}`;
   const lessonDurationMs = selectedLesson.durationMinutes * 60 * 1000;
   const lessonStartedAt = progress.lessonTimers[lessonKey];
-  const isLessonTimerStarted = Boolean(lessonStartedAt);
+  const savedLessonRemainingMs = progress.lessonTimerRemaining[lessonKey];
+  const savedLessonRunning = progress.lessonTimerRunning[lessonKey];
+  const isLegacyTimerRunning =
+    Boolean(lessonStartedAt) &&
+    savedLessonRemainingMs === undefined &&
+    savedLessonRunning === undefined;
+  const isLessonTimerStarted = Boolean(
+    lessonStartedAt || savedLessonRemainingMs !== undefined
+  );
+  const isLessonTimerRunning = Boolean(
+    lessonStartedAt && (savedLessonRunning || isLegacyTimerRunning)
+  );
+  const lessonRemainingMs = isLessonTimerRunning
+    ? Math.max(
+        0,
+        (savedLessonRemainingMs ?? lessonDurationMs) - (now - lessonStartedAt)
+      )
+    : (savedLessonRemainingMs ?? lessonDurationMs);
 
   const isLessonQuizComplete =
     progress.completedLessonQuizzes.includes(lessonKey);
   const isLessonTimerComplete =
-    isLessonQuizComplete ||
-    Boolean(lessonStartedAt && now - lessonStartedAt >= lessonDurationMs);
+    isLessonQuizComplete || (isLessonTimerStarted && lessonRemainingMs <= 0);
   const remainingLessonSeconds = Math.max(
     0,
-    Math.ceil((lessonDurationMs - (now - (lessonStartedAt || now))) / 1000)
+    Math.ceil(lessonRemainingMs / 1000)
   );
 
   const areAllModuleLessonsComplete = selectedModule.lessons.every((_, index) =>
@@ -319,13 +343,33 @@ function StudentDashboard() {
 
   function startSelectedLesson() {
     setProgress((current) =>
-      current.lessonTimers[lessonKey]
-        ? current
-        : {
-            ...current,
-            lessonTimers: { ...current.lessonTimers, [lessonKey]: Date.now() },
-          }
+      ({
+        ...current,
+        lessonTimers: { ...current.lessonTimers, [lessonKey]: Date.now() },
+        lessonTimerRemaining: {
+          ...current.lessonTimerRemaining,
+          [lessonKey]: current.lessonTimerRemaining[lessonKey] ?? lessonDurationMs,
+        },
+        lessonTimerRunning: {
+          ...current.lessonTimerRunning,
+          [lessonKey]: true,
+        },
+      })
     );
+  }
+
+  function pauseSelectedLesson() {
+    setProgress((current) => ({
+      ...current,
+      lessonTimerRemaining: {
+        ...current.lessonTimerRemaining,
+        [lessonKey]: lessonRemainingMs,
+      },
+      lessonTimerRunning: {
+        ...current.lessonTimerRunning,
+        [lessonKey]: false,
+      },
+    }));
   }
 
   const activeQuestions = useMemo(
@@ -517,6 +561,7 @@ function StudentDashboard() {
             answers={answers}
             showQuizResult={showQuizResult}
             isLessonTimerStarted={isLessonTimerStarted}
+            isLessonTimerRunning={isLessonTimerRunning}
             isLessonTimerComplete={isLessonTimerComplete}
             remainingLessonSeconds={remainingLessonSeconds}
             progress={progress}
@@ -530,6 +575,7 @@ function StudentDashboard() {
             submitQuiz={submitQuiz}
             completeQuizAfterReview={completeQuizAfterReview}
             onStartLesson={startSelectedLesson}
+            onPauseLesson={pauseSelectedLesson}
             onBack={() => setViewMode("modules")}
             onSelectLesson={selectLesson}
           />
@@ -704,6 +750,7 @@ function LessonView({
   answers,
   showQuizResult,
   isLessonTimerStarted,
+  isLessonTimerRunning,
   isLessonTimerComplete,
   remainingLessonSeconds,
   progress,
@@ -717,6 +764,7 @@ function LessonView({
   submitQuiz,
   completeQuizAfterReview,
   onStartLesson,
+  onPauseLesson,
   onBack,
   onSelectLesson,
 }: {
@@ -727,6 +775,7 @@ function LessonView({
   answers: Record<number, number | number[]>;
   showQuizResult: boolean;
   isLessonTimerStarted: boolean;
+  isLessonTimerRunning: boolean;
   isLessonTimerComplete: boolean;
   remainingLessonSeconds: number;
   progress: StudentProgress;
@@ -742,6 +791,7 @@ function LessonView({
   submitQuiz: () => void;
   completeQuizAfterReview: () => void;
   onStartLesson: () => void;
+  onPauseLesson: () => void;
   onBack: () => void;
   onSelectLesson: (index: number) => void;
 }) {
@@ -876,7 +926,9 @@ function LessonView({
                   !isLessonTimerComplete &&
                   !isLessonQuizComplete && (
                   <div className="mb-4 rounded-lg border border-secondary/40 bg-secondary/10 p-3 text-sm font-medium text-primary">
-                    Lesson quiz unlocks in {remainingTime}.
+                    {isLessonTimerRunning
+                      ? `Lesson quiz unlocks in ${remainingTime}.`
+                      : `Lesson timer paused at ${remainingTime}.`}
                   </div>
                 )}
 
@@ -889,13 +941,17 @@ function LessonView({
 
               <div className="flex flex-wrap gap-3">
                 <Button
-                  onClick={onStartLesson}
-                  disabled={isLessonTimerStarted || isLessonQuizComplete}
+                  onClick={isLessonTimerRunning ? onPauseLesson : onStartLesson}
+                  disabled={isLessonQuizComplete || isLessonTimerComplete}
                   variant="outline"
                 >
-                  {isLessonTimerStarted
-                    ? "Lesson timer started"
-                    : "Start lesson"}
+                  {isLessonTimerComplete
+                    ? "Timer complete"
+                    : isLessonTimerRunning
+                      ? "Pause lesson"
+                      : isLessonTimerStarted
+                        ? "Resume lesson"
+                        : "Start lesson"}
                 </Button>
 
                 <Button
@@ -911,7 +967,9 @@ function LessonView({
                     : isLessonTimerComplete
                       ? "Start lesson quiz"
                       : isLessonTimerStarted
-                        ? `Quiz unlocks in ${remainingTime}`
+                        ? isLessonTimerRunning
+                          ? `Quiz unlocks in ${remainingTime}`
+                          : "Resume lesson to unlock quiz"
                         : "Start lesson to unlock quiz"}
                 </Button>
 
