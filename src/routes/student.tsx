@@ -219,6 +219,7 @@ function StudentDashboard() {
   const lessonKey = `${selectedModule.id}-${selectedLessonIndex + 1}`;
   const lessonDurationMs = selectedLesson.durationMinutes * 60 * 1000;
   const lessonStartedAt = progress.lessonTimers[lessonKey];
+  const isLessonTimerStarted = Boolean(lessonStartedAt);
 
   const isLessonQuizComplete =
     progress.completedLessonQuizzes.includes(lessonKey);
@@ -301,15 +302,6 @@ function StudentDashboard() {
 
     setSelectedModuleId(moduleId);
     setSelectedLessonIndex(0);
-    const key = `${moduleId}-1`;
-    setProgress((current) =>
-      current.lessonTimers[key]
-        ? current
-        : {
-            ...current,
-            lessonTimers: { ...current.lessonTimers, [key]: Date.now() },
-          }
-    );
     setQuizMode(null);
     setAnswers({});
     setShowQuizResult(false);
@@ -320,23 +312,12 @@ function StudentDashboard() {
     if (!isLessonUnlocked(selectedModule.id, index)) return;
 
     setSelectedLessonIndex(index);
-    const key = `${selectedModule.id}-${index + 1}`;
-    setProgress((current) =>
-      current.lessonTimers[key]
-        ? current
-        : {
-            ...current,
-            lessonTimers: { ...current.lessonTimers, [key]: Date.now() },
-          }
-    );
     setQuizMode(null);
     setAnswers({});
     setShowQuizResult(false);
   }
 
-  useEffect(() => {
-    if (!user || !isLessonUnlocked(selectedModule.id, selectedLessonIndex)) return;
-
+  function startSelectedLesson() {
     setProgress((current) =>
       current.lessonTimers[lessonKey]
         ? current
@@ -345,7 +326,7 @@ function StudentDashboard() {
             lessonTimers: { ...current.lessonTimers, [lessonKey]: Date.now() },
           }
     );
-  }, [lessonKey, selectedLessonIndex, selectedModule.id, user]);
+  }
 
   const activeQuestions = useMemo(
     () => (quizMode === "module" ? selectedModule.moduleQuiz : selectedLesson.quiz),
@@ -412,7 +393,6 @@ function StudentDashboard() {
       }
     } else {
       const nextLessonIndex = selectedLessonIndex + 1;
-      const nextLessonKey = `${selectedModule.id}-${nextLessonIndex + 1}`;
 
       setProgress((current) => ({
         ...current,
@@ -421,14 +401,6 @@ function StudentDashboard() {
         )
           ? current.completedLessonQuizzes
           : [...current.completedLessonQuizzes, lessonKey],
-        lessonTimers:
-          nextLessonIndex < selectedModule.lessons.length
-            ? {
-                ...current.lessonTimers,
-                [nextLessonKey]:
-                  current.lessonTimers[nextLessonKey] || Date.now(),
-              }
-            : current.lessonTimers,
       }));
 
       if (nextLessonIndex < selectedModule.lessons.length) {
@@ -544,6 +516,7 @@ function StudentDashboard() {
             quizMode={quizMode}
             answers={answers}
             showQuizResult={showQuizResult}
+            isLessonTimerStarted={isLessonTimerStarted}
             isLessonTimerComplete={isLessonTimerComplete}
             remainingLessonSeconds={remainingLessonSeconds}
             progress={progress}
@@ -556,6 +529,7 @@ function StudentDashboard() {
             setShowQuizResult={setShowQuizResult}
             submitQuiz={submitQuiz}
             completeQuizAfterReview={completeQuizAfterReview}
+            onStartLesson={startSelectedLesson}
             onBack={() => setViewMode("modules")}
             onSelectLesson={selectLesson}
           />
@@ -729,6 +703,7 @@ function LessonView({
   quizMode,
   answers,
   showQuizResult,
+  isLessonTimerStarted,
   isLessonTimerComplete,
   remainingLessonSeconds,
   progress,
@@ -741,6 +716,7 @@ function LessonView({
   setShowQuizResult,
   submitQuiz,
   completeQuizAfterReview,
+  onStartLesson,
   onBack,
   onSelectLesson,
 }: {
@@ -750,6 +726,7 @@ function LessonView({
   quizMode: "lesson" | "module" | null;
   answers: Record<number, number | number[]>;
   showQuizResult: boolean;
+  isLessonTimerStarted: boolean;
   isLessonTimerComplete: boolean;
   remainingLessonSeconds: number;
   progress: StudentProgress;
@@ -764,6 +741,7 @@ function LessonView({
   setShowQuizResult: React.Dispatch<React.SetStateAction<boolean>>;
   submitQuiz: () => void;
   completeQuizAfterReview: () => void;
+  onStartLesson: () => void;
   onBack: () => void;
   onSelectLesson: (index: number) => void;
 }) {
@@ -887,7 +865,16 @@ function LessonView({
                 <div className="mb-4 flex items-center gap-2 text-sm font-bold text-secondary">
                   <Clock className="h-4 w-4" /> {selectedLesson.durationMinutes} minutes
                 </div>
-                {!isLessonTimerComplete && !isLessonQuizComplete && (
+                {!isLessonTimerStarted && !isLessonQuizComplete && (
+                  <div className="mb-4 rounded-lg border border-secondary/40 bg-secondary/10 p-3 text-sm font-medium text-primary">
+                    Start this lesson when you are ready. The quiz timer will
+                    begin only after you start.
+                  </div>
+                )}
+
+                {isLessonTimerStarted &&
+                  !isLessonTimerComplete &&
+                  !isLessonQuizComplete && (
                   <div className="mb-4 rounded-lg border border-secondary/40 bg-secondary/10 p-3 text-sm font-medium text-primary">
                     Lesson quiz unlocks in {remainingTime}.
                   </div>
@@ -902,6 +889,16 @@ function LessonView({
 
               <div className="flex flex-wrap gap-3">
                 <Button
+                  onClick={onStartLesson}
+                  disabled={isLessonTimerStarted || isLessonQuizComplete}
+                  variant="outline"
+                >
+                  {isLessonTimerStarted
+                    ? "Lesson timer started"
+                    : "Start lesson"}
+                </Button>
+
+                <Button
                   onClick={() => {
                     setQuizMode("lesson");
                     setAnswers({});
@@ -913,7 +910,9 @@ function LessonView({
                     ? "Lesson quiz completed"
                     : isLessonTimerComplete
                       ? "Start lesson quiz"
-                      : `Quiz unlocks in ${remainingTime}`}
+                      : isLessonTimerStarted
+                        ? `Quiz unlocks in ${remainingTime}`
+                        : "Start lesson to unlock quiz"}
                 </Button>
 
                 <Button
