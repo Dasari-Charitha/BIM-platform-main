@@ -1,0 +1,2312 @@
+[
+  {
+    "id": 31,
+    "title": "DIGITAL TWINS IN CONSTRUCTION",
+    "phase": "Phase 5: Smart Infrastructure & Innovation",
+    "objective": "Understand digital twins and their application in infrastructure management.",
+    "durationMinutes": 60,
+    "lessons": [
+      {
+        "title": "Lesson 1: What is a Digital Twin?",
+        "durationMinutes": 15,
+        "content": [
+          "Welcome to this lesson on Lesson 1: What is a Digital Twin?. In the context of DIGITAL TWINS IN CONSTRUCTION, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 1: what is a digital twin? is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of What is a Digital Twin?, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 2: BIM as the foundation of a digital twin",
+        "durationMinutes": 15,
+        "content": [
+          "Welcome to this lesson on Lesson 2: BIM as the foundation of a digital twin. In the context of DIGITAL TWINS IN CONSTRUCTION, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 2: bim as the foundation of a digital twin is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of BIM as the foundation of a digital twin, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 3: Types of digital twins: component, system, process",
+        "durationMinutes": 25,
+        "content": [
+          "Welcome to this lesson on Lesson 3: Types of digital twins: component, system, process. In the context of DIGITAL TWINS IN CONSTRUCTION, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 3: types of digital twins: component, system, process is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of component, system, process, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 4: Real-time data integration with digital twins (IoT + BIM)",
+        "durationMinutes": 15,
+        "content": [
+          "Welcome to this lesson on Lesson 4: Real-time data integration with digital twins (IoT + BIM). In the context of DIGITAL TWINS IN CONSTRUCTION, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 4: real-time data integration with digital twins (iot + bim) is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of Real-time data integration with digital twins (IoT + BIM), which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 5: Case studies: digital twins in airports and bridges",
+        "durationMinutes": 20,
+        "content": [
+          "Welcome to this lesson on Lesson 5: Case studies: digital twins in airports and bridges. In the context of DIGITAL TWINS IN CONSTRUCTION, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 5: case studies: digital twins in airports and bridges is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of digital twins in airports and bridges, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 6: Digital twin for infrastructure lifecycle management",
+        "durationMinutes": 20,
+        "content": [
+          "Welcome to this lesson on Lesson 6: Digital twin for infrastructure lifecycle management. In the context of DIGITAL TWINS IN CONSTRUCTION, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 6: digital twin for infrastructure lifecycle management is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of Digital twin for infrastructure lifecycle management, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      }
+    ],
+    "moduleQuiz": [
+      {
+        "question": "What is the ultimate benefit of implementing digital twins in construction?",
+        "type": "single",
+        "options": [
+          "It significantly increases manual drafting errors.",
+          "It improves coordination, efficiency, and project lifecycle management.",
+          "It prevents teams from communicating effectively.",
+          "It restricts the use of modern technology."
+        ],
+        "answer": 1
+      }
+    ]
+  },
+  {
+    "id": 32,
+    "title": "IOT IN CONSTRUCTION & SMART SITE MANAGEMENT",
+    "phase": "Phase 5: Smart Infrastructure & Innovation",
+    "objective": "Understand IoT applications in construction and their integration with BIM.",
+    "durationMinutes": 60,
+    "lessons": [
+      {
+        "title": "Lesson 1: Introduction to IoT and connected sensors",
+        "durationMinutes": 15,
+        "content": [
+          "Welcome to this lesson on Lesson 1: Introduction to IoT and connected sensors. In the context of IOT IN CONSTRUCTION & SMART SITE MANAGEMENT, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 1: introduction to iot and connected sensors is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of Introduction to IoT and connected sensors, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 2: IoT applications: temperature, humidity, structural health monitoring",
+        "durationMinutes": 15,
+        "content": [
+          "Welcome to this lesson on Lesson 2: IoT applications: temperature, humidity, structural health monitoring. In the context of IOT IN CONSTRUCTION & SMART SITE MANAGEMENT, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 2: iot applications: temperature, humidity, structural health monitoring is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of temperature, humidity, structural health monitoring, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 3: Smart helmets, wristbands, and wearables on site",
+        "durationMinutes": 25,
+        "content": [
+          "Welcome to this lesson on Lesson 3: Smart helmets, wristbands, and wearables on site. In the context of IOT IN CONSTRUCTION & SMART SITE MANAGEMENT, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 3: smart helmets, wristbands, and wearables on site is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of Smart helmets, wristbands, and wearables on site, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 4: IoT data integration with BIM models",
+        "durationMinutes": 25,
+        "content": [
+          "Welcome to this lesson on Lesson 4: IoT data integration with BIM models. In the context of IOT IN CONSTRUCTION & SMART SITE MANAGEMENT, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 4: iot data integration with bim models is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of IoT data integration with BIM models, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 5: Real-time site monitoring dashboards",
+        "durationMinutes": 15,
+        "content": [
+          "Welcome to this lesson on Lesson 5: Real-time site monitoring dashboards. In the context of IOT IN CONSTRUCTION & SMART SITE MANAGEMENT, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 5: real-time site monitoring dashboards is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of Real-time site monitoring dashboards, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 6: Construction safety enhancement with IoT",
+        "durationMinutes": 15,
+        "content": [
+          "Welcome to this lesson on Lesson 6: Construction safety enhancement with IoT. In the context of IOT IN CONSTRUCTION & SMART SITE MANAGEMENT, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 6: construction safety enhancement with iot is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of Construction safety enhancement with IoT, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      }
+    ],
+    "moduleQuiz": [
+      {
+        "question": "What is the ultimate benefit of implementing iot in construction & smart site management?",
+        "type": "single",
+        "options": [
+          "It significantly increases manual drafting errors.",
+          "It improves coordination, efficiency, and project lifecycle management.",
+          "It prevents teams from communicating effectively.",
+          "It restricts the use of modern technology."
+        ],
+        "answer": 1
+      }
+    ]
+  },
+  {
+    "id": 33,
+    "title": "AI & MACHINE LEARNING IN BIM",
+    "phase": "Phase 5: Smart Infrastructure & Innovation",
+    "objective": "Understand how Artificial Intelligence is transforming BIM and construction workflows.",
+    "durationMinutes": 60,
+    "lessons": [
+      {
+        "title": "Lesson 1: Introduction to AI and ML concepts for non-programmers",
+        "durationMinutes": 25,
+        "content": [
+          "Welcome to this lesson on Lesson 1: Introduction to AI and ML concepts for non-programmers. In the context of AI & MACHINE LEARNING IN BIM, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Advanced digital technologies are reshaping how we interact with infrastructure. By incorporating lesson 1: introduction to ai and ml concepts for non-programmers into project planning and execution, engineering teams can unlock unprecedented levels of data-driven insight. This enables real-time monitoring, predictive maintenance, and highly optimized operations.",
+          "The transition from static 3D models to dynamic, intelligent systems requires a deep understanding of data exchange and sensor integration. Professionals who master these techniques can significantly reduce lifecycle costs and improve overall safety and sustainability.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of Introduction to AI and ML concepts for non-programmers, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 2: AI in design optimization and generative design",
+        "durationMinutes": 25,
+        "content": [
+          "Welcome to this lesson on Lesson 2: AI in design optimization and generative design. In the context of AI & MACHINE LEARNING IN BIM, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Advanced digital technologies are reshaping how we interact with infrastructure. By incorporating lesson 2: ai in design optimization and generative design into project planning and execution, engineering teams can unlock unprecedented levels of data-driven insight. This enables real-time monitoring, predictive maintenance, and highly optimized operations.",
+          "The transition from static 3D models to dynamic, intelligent systems requires a deep understanding of data exchange and sensor integration. Professionals who master these techniques can significantly reduce lifecycle costs and improve overall safety and sustainability.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of AI in design optimization and generative design, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 3: Machine learning for construction schedule prediction",
+        "durationMinutes": 25,
+        "content": [
+          "Welcome to this lesson on Lesson 3: Machine learning for construction schedule prediction. In the context of AI & MACHINE LEARNING IN BIM, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Advanced digital technologies are reshaping how we interact with infrastructure. By incorporating lesson 3: machine learning for construction schedule prediction into project planning and execution, engineering teams can unlock unprecedented levels of data-driven insight. This enables real-time monitoring, predictive maintenance, and highly optimized operations.",
+          "The transition from static 3D models to dynamic, intelligent systems requires a deep understanding of data exchange and sensor integration. Professionals who master these techniques can significantly reduce lifecycle costs and improve overall safety and sustainability.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of Machine learning for construction schedule prediction, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 4: AI-based clash detection and resolution",
+        "durationMinutes": 15,
+        "content": [
+          "Welcome to this lesson on Lesson 4: AI-based clash detection and resolution. In the context of AI & MACHINE LEARNING IN BIM, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Advanced digital technologies are reshaping how we interact with infrastructure. By incorporating lesson 4: ai-based clash detection and resolution into project planning and execution, engineering teams can unlock unprecedented levels of data-driven insight. This enables real-time monitoring, predictive maintenance, and highly optimized operations.",
+          "The transition from static 3D models to dynamic, intelligent systems requires a deep understanding of data exchange and sensor integration. Professionals who master these techniques can significantly reduce lifecycle costs and improve overall safety and sustainability.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of AI-based clash detection and resolution, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 5: Automated quantity takeoff using AI",
+        "durationMinutes": 15,
+        "content": [
+          "Welcome to this lesson on Lesson 5: Automated quantity takeoff using AI. In the context of AI & MACHINE LEARNING IN BIM, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Advanced digital technologies are reshaping how we interact with infrastructure. By incorporating lesson 5: automated quantity takeoff using ai into project planning and execution, engineering teams can unlock unprecedented levels of data-driven insight. This enables real-time monitoring, predictive maintenance, and highly optimized operations.",
+          "The transition from static 3D models to dynamic, intelligent systems requires a deep understanding of data exchange and sensor integration. Professionals who master these techniques can significantly reduce lifecycle costs and improve overall safety and sustainability.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of Automated quantity takeoff using AI, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 6: Future AI applications in BIM: what's coming?",
+        "durationMinutes": 20,
+        "content": [
+          "Welcome to this lesson on Lesson 6: Future AI applications in BIM: what's coming?. In the context of AI & MACHINE LEARNING IN BIM, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Advanced digital technologies are reshaping how we interact with infrastructure. By incorporating lesson 6: future ai applications in bim: what's coming? into project planning and execution, engineering teams can unlock unprecedented levels of data-driven insight. This enables real-time monitoring, predictive maintenance, and highly optimized operations.",
+          "The transition from static 3D models to dynamic, intelligent systems requires a deep understanding of data exchange and sensor integration. Professionals who master these techniques can significantly reduce lifecycle costs and improve overall safety and sustainability.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of what's coming?, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      }
+    ],
+    "moduleQuiz": [
+      {
+        "question": "What is the ultimate benefit of implementing ai & machine learning in bim?",
+        "type": "single",
+        "options": [
+          "It significantly increases manual drafting errors.",
+          "It improves coordination, efficiency, and project lifecycle management.",
+          "It prevents teams from communicating effectively.",
+          "It restricts the use of modern technology."
+        ],
+        "answer": 1
+      }
+    ]
+  },
+  {
+    "id": 34,
+    "title": "DRONES, AR & VR IN CONSTRUCTION",
+    "phase": "Phase 5: Smart Infrastructure & Innovation",
+    "objective": "Understand how drones, augmented reality, and virtual reality are being used in modern construction.",
+    "durationMinutes": 60,
+    "lessons": [
+      {
+        "title": "Lesson 1: Drone applications in construction: site survey, progress monitoring",
+        "durationMinutes": 15,
+        "content": [
+          "Welcome to this lesson on Lesson 1: Drone applications in construction: site survey, progress monitoring. In the context of DRONES, AR & VR IN CONSTRUCTION, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 1: drone applications in construction: site survey, progress monitoring is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of site survey, progress monitoring, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 2: Photogrammetry and point cloud data from drones",
+        "durationMinutes": 25,
+        "content": [
+          "Welcome to this lesson on Lesson 2: Photogrammetry and point cloud data from drones. In the context of DRONES, AR & VR IN CONSTRUCTION, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 2: photogrammetry and point cloud data from drones is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of Photogrammetry and point cloud data from drones, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 3: Augmented Reality (AR): overlaying BIM models on site",
+        "durationMinutes": 25,
+        "content": [
+          "Welcome to this lesson on Lesson 3: Augmented Reality (AR): overlaying BIM models on site. In the context of DRONES, AR & VR IN CONSTRUCTION, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 3: augmented reality (ar): overlaying bim models on site is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of overlaying BIM models on site, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 4: Virtual Reality (VR): design review and client walkthroughs",
+        "durationMinutes": 25,
+        "content": [
+          "Welcome to this lesson on Lesson 4: Virtual Reality (VR): design review and client walkthroughs. In the context of DRONES, AR & VR IN CONSTRUCTION, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 4: virtual reality (vr): design review and client walkthroughs is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of design review and client walkthroughs, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 5: AR/VR hardware: HoloLens, Oculus, and mobile platforms",
+        "durationMinutes": 15,
+        "content": [
+          "Welcome to this lesson on Lesson 5: AR/VR hardware: HoloLens, Oculus, and mobile platforms. In the context of DRONES, AR & VR IN CONSTRUCTION, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 5: ar/vr hardware: hololens, oculus, and mobile platforms is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of HoloLens, Oculus, and mobile platforms, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 6: Case study: BIM + Drone integration in an infrastructure project",
+        "durationMinutes": 25,
+        "content": [
+          "Welcome to this lesson on Lesson 6: Case study: BIM + Drone integration in an infrastructure project. In the context of DRONES, AR & VR IN CONSTRUCTION, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 6: case study: bim + drone integration in an infrastructure project is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of BIM + Drone integration in an infrastructure project, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      }
+    ],
+    "moduleQuiz": [
+      {
+        "question": "What is the ultimate benefit of implementing drones, ar & vr in construction?",
+        "type": "single",
+        "options": [
+          "It significantly increases manual drafting errors.",
+          "It improves coordination, efficiency, and project lifecycle management.",
+          "It prevents teams from communicating effectively.",
+          "It restricts the use of modern technology."
+        ],
+        "answer": 1
+      }
+    ]
+  },
+  {
+    "id": 35,
+    "title": "FUTURE OF BIM & INDUSTRY 4.0 IN CIVIL ENGINEERING",
+    "phase": "Phase 5: Smart Infrastructure & Innovation",
+    "objective": "Understand the future trajectory of BIM and the role of Industry 4.0 technologies in civil engineering.",
+    "durationMinutes": 60,
+    "lessons": [
+      {
+        "title": "Lesson 1: Industry 4.0 and its five pillars in construction",
+        "durationMinutes": 20,
+        "content": [
+          "Welcome to this lesson on Lesson 1: Industry 4.0 and its five pillars in construction. In the context of FUTURE OF BIM & INDUSTRY 4.0 IN CIVIL ENGINEERING, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 1: industry 4.0 and its five pillars in construction is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of Industry 4.0 and its five pillars in construction, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 2: OpenBIM and the future of interoperability",
+        "durationMinutes": 25,
+        "content": [
+          "Welcome to this lesson on Lesson 2: OpenBIM and the future of interoperability. In the context of FUTURE OF BIM & INDUSTRY 4.0 IN CIVIL ENGINEERING, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 2: openbim and the future of interoperability is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of OpenBIM and the future of interoperability, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 3: BIM and blockchain for contract management",
+        "durationMinutes": 15,
+        "content": [
+          "Welcome to this lesson on Lesson 3: BIM and blockchain for contract management. In the context of FUTURE OF BIM & INDUSTRY 4.0 IN CIVIL ENGINEERING, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 3: bim and blockchain for contract management is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of BIM and blockchain for contract management, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 4: 3D printing in construction enabled by BIM data",
+        "durationMinutes": 20,
+        "content": [
+          "Welcome to this lesson on Lesson 4: 3D printing in construction enabled by BIM data. In the context of FUTURE OF BIM & INDUSTRY 4.0 IN CIVIL ENGINEERING, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 4: 3d printing in construction enabled by bim data is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of 3D printing in construction enabled by BIM data, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 5: Robotics and automation in BIM-driven construction",
+        "durationMinutes": 15,
+        "content": [
+          "Welcome to this lesson on Lesson 5: Robotics and automation in BIM-driven construction. In the context of FUTURE OF BIM & INDUSTRY 4.0 IN CIVIL ENGINEERING, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 5: robotics and automation in bim-driven construction is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of Robotics and automation in BIM-driven construction, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 6: The civil engineer of 2030: skills and mindset required",
+        "durationMinutes": 20,
+        "content": [
+          "Welcome to this lesson on Lesson 6: The civil engineer of 2030: skills and mindset required. In the context of FUTURE OF BIM & INDUSTRY 4.0 IN CIVIL ENGINEERING, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 6: the civil engineer of 2030: skills and mindset required is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of skills and mindset required, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      }
+    ],
+    "moduleQuiz": [
+      {
+        "question": "What is the ultimate benefit of implementing future of bim & industry 4.0 in civil engineering?",
+        "type": "single",
+        "options": [
+          "It significantly increases manual drafting errors.",
+          "It improves coordination, efficiency, and project lifecycle management.",
+          "It prevents teams from communicating effectively.",
+          "It restricts the use of modern technology."
+        ],
+        "answer": 1
+      }
+    ]
+  },
+  {
+    "id": 36,
+    "title": "BIM IN METRO RAIL PROJECTS",
+    "phase": "Phase 6: Advanced Industry Applications",
+    "objective": "Apply BIM knowledge to the complex domain of metro rail infrastructure.",
+    "durationMinutes": 60,
+    "lessons": [
+      {
+        "title": "Lesson 1: Overview of metro rail BIM requirements",
+        "durationMinutes": 25,
+        "content": [
+          "Welcome to this lesson on Lesson 1: Overview of metro rail BIM requirements. In the context of BIM IN METRO RAIL PROJECTS, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Advanced digital technologies are reshaping how we interact with infrastructure. By incorporating lesson 1: overview of metro rail bim requirements into project planning and execution, engineering teams can unlock unprecedented levels of data-driven insight. This enables real-time monitoring, predictive maintenance, and highly optimized operations.",
+          "The transition from static 3D models to dynamic, intelligent systems requires a deep understanding of data exchange and sensor integration. Professionals who master these techniques can significantly reduce lifecycle costs and improve overall safety and sustainability.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of Overview of metro rail BIM requirements, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 2: Underground and elevated structure modeling",
+        "durationMinutes": 15,
+        "content": [
+          "Welcome to this lesson on Lesson 2: Underground and elevated structure modeling. In the context of BIM IN METRO RAIL PROJECTS, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Advanced digital technologies are reshaping how we interact with infrastructure. By incorporating lesson 2: underground and elevated structure modeling into project planning and execution, engineering teams can unlock unprecedented levels of data-driven insight. This enables real-time monitoring, predictive maintenance, and highly optimized operations.",
+          "The transition from static 3D models to dynamic, intelligent systems requires a deep understanding of data exchange and sensor integration. Professionals who master these techniques can significantly reduce lifecycle costs and improve overall safety and sustainability.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of Underground and elevated structure modeling, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 3: Tunnel modeling: TBM drives and cut-and-cover sections",
+        "durationMinutes": 15,
+        "content": [
+          "Welcome to this lesson on Lesson 3: Tunnel modeling: TBM drives and cut-and-cover sections. In the context of BIM IN METRO RAIL PROJECTS, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Advanced digital technologies are reshaping how we interact with infrastructure. By incorporating lesson 3: tunnel modeling: tbm drives and cut-and-cover sections into project planning and execution, engineering teams can unlock unprecedented levels of data-driven insight. This enables real-time monitoring, predictive maintenance, and highly optimized operations.",
+          "The transition from static 3D models to dynamic, intelligent systems requires a deep understanding of data exchange and sensor integration. Professionals who master these techniques can significantly reduce lifecycle costs and improve overall safety and sustainability.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of TBM drives and cut-and-cover sections, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 4: Station design and cross-discipline coordination",
+        "durationMinutes": 25,
+        "content": [
+          "Welcome to this lesson on Lesson 4: Station design and cross-discipline coordination. In the context of BIM IN METRO RAIL PROJECTS, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Advanced digital technologies are reshaping how we interact with infrastructure. By incorporating lesson 4: station design and cross-discipline coordination into project planning and execution, engineering teams can unlock unprecedented levels of data-driven insight. This enables real-time monitoring, predictive maintenance, and highly optimized operations.",
+          "The transition from static 3D models to dynamic, intelligent systems requires a deep understanding of data exchange and sensor integration. Professionals who master these techniques can significantly reduce lifecycle costs and improve overall safety and sustainability.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of Station design and cross-discipline coordination, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 5: 4D BIM for phased metro construction",
+        "durationMinutes": 25,
+        "content": [
+          "Welcome to this lesson on Lesson 5: 4D BIM for phased metro construction. In the context of BIM IN METRO RAIL PROJECTS, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Advanced digital technologies are reshaping how we interact with infrastructure. By incorporating lesson 5: 4d bim for phased metro construction into project planning and execution, engineering teams can unlock unprecedented levels of data-driven insight. This enables real-time monitoring, predictive maintenance, and highly optimized operations.",
+          "The transition from static 3D models to dynamic, intelligent systems requires a deep understanding of data exchange and sensor integration. Professionals who master these techniques can significantly reduce lifecycle costs and improve overall safety and sustainability.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of 4D BIM for phased metro construction, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 6: Case study: Bangalore Metro Phase 2 BIM implementation",
+        "durationMinutes": 20,
+        "content": [
+          "Welcome to this lesson on Lesson 6: Case study: Bangalore Metro Phase 2 BIM implementation. In the context of BIM IN METRO RAIL PROJECTS, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Advanced digital technologies are reshaping how we interact with infrastructure. By incorporating lesson 6: case study: bangalore metro phase 2 bim implementation into project planning and execution, engineering teams can unlock unprecedented levels of data-driven insight. This enables real-time monitoring, predictive maintenance, and highly optimized operations.",
+          "The transition from static 3D models to dynamic, intelligent systems requires a deep understanding of data exchange and sensor integration. Professionals who master these techniques can significantly reduce lifecycle costs and improve overall safety and sustainability.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of Bangalore Metro Phase 2 BIM implementation, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      }
+    ],
+    "moduleQuiz": [
+      {
+        "question": "What is the ultimate benefit of implementing bim in metro rail projects?",
+        "type": "single",
+        "options": [
+          "It significantly increases manual drafting errors.",
+          "It improves coordination, efficiency, and project lifecycle management.",
+          "It prevents teams from communicating effectively.",
+          "It restricts the use of modern technology."
+        ],
+        "answer": 1
+      }
+    ]
+  },
+  {
+    "id": 37,
+    "title": "BIM IN BRIDGES & HIGHWAY INFRASTRUCTURE",
+    "phase": "Phase 6: Advanced Industry Applications",
+    "objective": "Understand how BIM is applied in bridge design, construction, and highway infrastructure.",
+    "durationMinutes": 60,
+    "lessons": [
+      {
+        "title": "Lesson 1: BIM standards for bridges: ISO 19650 application",
+        "durationMinutes": 20,
+        "content": [
+          "Welcome to this lesson on Lesson 1: BIM standards for bridges: ISO 19650 application. In the context of BIM IN BRIDGES & HIGHWAY INFRASTRUCTURE, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 1: bim standards for bridges: iso 19650 application is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of ISO 19650 application, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 2: Structural modeling of bridge components",
+        "durationMinutes": 15,
+        "content": [
+          "Welcome to this lesson on Lesson 2: Structural modeling of bridge components. In the context of BIM IN BRIDGES & HIGHWAY INFRASTRUCTURE, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 2: structural modeling of bridge components is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of Structural modeling of bridge components, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 3: Civil 3D for highway and road alignment modeling",
+        "durationMinutes": 15,
+        "content": [
+          "Welcome to this lesson on Lesson 3: Civil 3D for highway and road alignment modeling. In the context of BIM IN BRIDGES & HIGHWAY INFRASTRUCTURE, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 3: civil 3d for highway and road alignment modeling is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of Civil 3D for highway and road alignment modeling, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 4: 4D construction sequencing for bridge projects",
+        "durationMinutes": 25,
+        "content": [
+          "Welcome to this lesson on Lesson 4: 4D construction sequencing for bridge projects. In the context of BIM IN BRIDGES & HIGHWAY INFRASTRUCTURE, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 4: 4d construction sequencing for bridge projects is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of 4D construction sequencing for bridge projects, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 5: Quantity takeoff and cost estimation for bridges",
+        "durationMinutes": 25,
+        "content": [
+          "Welcome to this lesson on Lesson 5: Quantity takeoff and cost estimation for bridges. In the context of BIM IN BRIDGES & HIGHWAY INFRASTRUCTURE, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 5: quantity takeoff and cost estimation for bridges is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of Quantity takeoff and cost estimation for bridges, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 6: Case study: BIM in a cable-stayed bridge project",
+        "durationMinutes": 25,
+        "content": [
+          "Welcome to this lesson on Lesson 6: Case study: BIM in a cable-stayed bridge project. In the context of BIM IN BRIDGES & HIGHWAY INFRASTRUCTURE, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 6: case study: bim in a cable-stayed bridge project is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of BIM in a cable-stayed bridge project, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      }
+    ],
+    "moduleQuiz": [
+      {
+        "question": "What is the ultimate benefit of implementing bim in bridges & highway infrastructure?",
+        "type": "single",
+        "options": [
+          "It significantly increases manual drafting errors.",
+          "It improves coordination, efficiency, and project lifecycle management.",
+          "It prevents teams from communicating effectively.",
+          "It restricts the use of modern technology."
+        ],
+        "answer": 1
+      }
+    ]
+  },
+  {
+    "id": 38,
+    "title": "BIM IN AIRPORTS & LARGE INFRASTRUCTURE",
+    "phase": "Phase 6: Advanced Industry Applications",
+    "objective": "Explore how BIM is applied in airport design, construction, and operations.",
+    "durationMinutes": 60,
+    "lessons": [
+      {
+        "title": "Lesson 1: Complexity of airport infrastructure: terminals, runways, services",
+        "durationMinutes": 25,
+        "content": [
+          "Welcome to this lesson on Lesson 1: Complexity of airport infrastructure: terminals, runways, services. In the context of BIM IN AIRPORTS & LARGE INFRASTRUCTURE, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Advanced digital technologies are reshaping how we interact with infrastructure. By incorporating lesson 1: complexity of airport infrastructure: terminals, runways, services into project planning and execution, engineering teams can unlock unprecedented levels of data-driven insight. This enables real-time monitoring, predictive maintenance, and highly optimized operations.",
+          "The transition from static 3D models to dynamic, intelligent systems requires a deep understanding of data exchange and sensor integration. Professionals who master these techniques can significantly reduce lifecycle costs and improve overall safety and sustainability.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of terminals, runways, services, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 2: Multi-discipline coordination in airport BIM projects",
+        "durationMinutes": 15,
+        "content": [
+          "Welcome to this lesson on Lesson 2: Multi-discipline coordination in airport BIM projects. In the context of BIM IN AIRPORTS & LARGE INFRASTRUCTURE, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Advanced digital technologies are reshaping how we interact with infrastructure. By incorporating lesson 2: multi-discipline coordination in airport bim projects into project planning and execution, engineering teams can unlock unprecedented levels of data-driven insight. This enables real-time monitoring, predictive maintenance, and highly optimized operations.",
+          "The transition from static 3D models to dynamic, intelligent systems requires a deep understanding of data exchange and sensor integration. Professionals who master these techniques can significantly reduce lifecycle costs and improve overall safety and sustainability.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of Multi-discipline coordination in airport BIM projects, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 3: 4D BIM for phased airport expansion",
+        "durationMinutes": 20,
+        "content": [
+          "Welcome to this lesson on Lesson 3: 4D BIM for phased airport expansion. In the context of BIM IN AIRPORTS & LARGE INFRASTRUCTURE, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Advanced digital technologies are reshaping how we interact with infrastructure. By incorporating lesson 3: 4d bim for phased airport expansion into project planning and execution, engineering teams can unlock unprecedented levels of data-driven insight. This enables real-time monitoring, predictive maintenance, and highly optimized operations.",
+          "The transition from static 3D models to dynamic, intelligent systems requires a deep understanding of data exchange and sensor integration. Professionals who master these techniques can significantly reduce lifecycle costs and improve overall safety and sustainability.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of 4D BIM for phased airport expansion, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 4: BIM for airport FM and passenger experience",
+        "durationMinutes": 25,
+        "content": [
+          "Welcome to this lesson on Lesson 4: BIM for airport FM and passenger experience. In the context of BIM IN AIRPORTS & LARGE INFRASTRUCTURE, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Advanced digital technologies are reshaping how we interact with infrastructure. By incorporating lesson 4: bim for airport fm and passenger experience into project planning and execution, engineering teams can unlock unprecedented levels of data-driven insight. This enables real-time monitoring, predictive maintenance, and highly optimized operations.",
+          "The transition from static 3D models to dynamic, intelligent systems requires a deep understanding of data exchange and sensor integration. Professionals who master these techniques can significantly reduce lifecycle costs and improve overall safety and sustainability.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of BIM for airport FM and passenger experience, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 5: Digital twin for airport operations management",
+        "durationMinutes": 20,
+        "content": [
+          "Welcome to this lesson on Lesson 5: Digital twin for airport operations management. In the context of BIM IN AIRPORTS & LARGE INFRASTRUCTURE, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Advanced digital technologies are reshaping how we interact with infrastructure. By incorporating lesson 5: digital twin for airport operations management into project planning and execution, engineering teams can unlock unprecedented levels of data-driven insight. This enables real-time monitoring, predictive maintenance, and highly optimized operations.",
+          "The transition from static 3D models to dynamic, intelligent systems requires a deep understanding of data exchange and sensor integration. Professionals who master these techniques can significantly reduce lifecycle costs and improve overall safety and sustainability.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of Digital twin for airport operations management, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 6: Case study: Navi Mumbai International Airport BIM strategy",
+        "durationMinutes": 20,
+        "content": [
+          "Welcome to this lesson on Lesson 6: Case study: Navi Mumbai International Airport BIM strategy. In the context of BIM IN AIRPORTS & LARGE INFRASTRUCTURE, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Advanced digital technologies are reshaping how we interact with infrastructure. By incorporating lesson 6: case study: navi mumbai international airport bim strategy into project planning and execution, engineering teams can unlock unprecedented levels of data-driven insight. This enables real-time monitoring, predictive maintenance, and highly optimized operations.",
+          "The transition from static 3D models to dynamic, intelligent systems requires a deep understanding of data exchange and sensor integration. Professionals who master these techniques can significantly reduce lifecycle costs and improve overall safety and sustainability.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of Navi Mumbai International Airport BIM strategy, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      }
+    ],
+    "moduleQuiz": [
+      {
+        "question": "What is the ultimate benefit of implementing bim in airports & large infrastructure?",
+        "type": "single",
+        "options": [
+          "It significantly increases manual drafting errors.",
+          "It improves coordination, efficiency, and project lifecycle management.",
+          "It prevents teams from communicating effectively.",
+          "It restricts the use of modern technology."
+        ],
+        "answer": 1
+      }
+    ]
+  },
+  {
+    "id": 39,
+    "title": "BIM IN COMMERCIAL & RESIDENTIAL BUILDINGS",
+    "phase": "Phase 6: Advanced Industry Applications",
+    "objective": "Understand BIM applications in everyday commercial and residential building projects.",
+    "durationMinutes": 60,
+    "lessons": [
+      {
+        "title": "Lesson 1: BIM for residential development: townships and housing",
+        "durationMinutes": 20,
+        "content": [
+          "Welcome to this lesson on Lesson 1: BIM for residential development: townships and housing. In the context of BIM IN COMMERCIAL & RESIDENTIAL BUILDINGS, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 1: bim for residential development: townships and housing is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of townships and housing, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 2: Commercial building BIM: offices, malls, hotels",
+        "durationMinutes": 20,
+        "content": [
+          "Welcome to this lesson on Lesson 2: Commercial building BIM: offices, malls, hotels. In the context of BIM IN COMMERCIAL & RESIDENTIAL BUILDINGS, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 2: commercial building bim: offices, malls, hotels is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of offices, malls, hotels, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 3: Interior design integration with architectural BIM",
+        "durationMinutes": 15,
+        "content": [
+          "Welcome to this lesson on Lesson 3: Interior design integration with architectural BIM. In the context of BIM IN COMMERCIAL & RESIDENTIAL BUILDINGS, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 3: interior design integration with architectural bim is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of Interior design integration with architectural BIM, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 4: BIM for interior quantity takeoff and material selection",
+        "durationMinutes": 25,
+        "content": [
+          "Welcome to this lesson on Lesson 4: BIM for interior quantity takeoff and material selection. In the context of BIM IN COMMERCIAL & RESIDENTIAL BUILDINGS, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 4: bim for interior quantity takeoff and material selection is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of BIM for interior quantity takeoff and material selection, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 5: Real estate pre-sales: BIM-based visualizations",
+        "durationMinutes": 20,
+        "content": [
+          "Welcome to this lesson on Lesson 5: Real estate pre-sales: BIM-based visualizations. In the context of BIM IN COMMERCIAL & RESIDENTIAL BUILDINGS, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 5: real estate pre-sales: bim-based visualizations is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of BIM-based visualizations, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 6: Case study: BIM in a high-rise residential tower, India",
+        "durationMinutes": 25,
+        "content": [
+          "Welcome to this lesson on Lesson 6: Case study: BIM in a high-rise residential tower, India. In the context of BIM IN COMMERCIAL & RESIDENTIAL BUILDINGS, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 6: case study: bim in a high-rise residential tower, india is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of BIM in a high-rise residential tower, India, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      }
+    ],
+    "moduleQuiz": [
+      {
+        "question": "What is the ultimate benefit of implementing bim in commercial & residential buildings?",
+        "type": "single",
+        "options": [
+          "It significantly increases manual drafting errors.",
+          "It improves coordination, efficiency, and project lifecycle management.",
+          "It prevents teams from communicating effectively.",
+          "It restricts the use of modern technology."
+        ],
+        "answer": 1
+      }
+    ]
+  },
+  {
+    "id": 40,
+    "title": "BIM IN FACILITY MANAGEMENT & INFRASTRUCTURE ANALYTICS",
+    "phase": "Phase 6: Advanced Industry Applications",
+    "objective": "Understand how BIM supports facility management and data analytics after construction.",
+    "durationMinutes": 60,
+    "lessons": [
+      {
+        "title": "Lesson 1: 7D BIM and facilities management",
+        "durationMinutes": 15,
+        "content": [
+          "Welcome to this lesson on Lesson 1: 7D BIM and facilities management. In the context of BIM IN FACILITY MANAGEMENT & INFRASTRUCTURE ANALYTICS, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 1: 7d bim and facilities management is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of 7D BIM and facilities management, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 2: Asset management using BIM data",
+        "durationMinutes": 15,
+        "content": [
+          "Welcome to this lesson on Lesson 2: Asset management using BIM data. In the context of BIM IN FACILITY MANAGEMENT & INFRASTRUCTURE ANALYTICS, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 2: asset management using bim data is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of Asset management using BIM data, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 3: Preventive and predictive maintenance through BIM",
+        "durationMinutes": 25,
+        "content": [
+          "Welcome to this lesson on Lesson 3: Preventive and predictive maintenance through BIM. In the context of BIM IN FACILITY MANAGEMENT & INFRASTRUCTURE ANALYTICS, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 3: preventive and predictive maintenance through bim is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of Preventive and predictive maintenance through BIM, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 4: Energy management using 6D BIM data",
+        "durationMinutes": 25,
+        "content": [
+          "Welcome to this lesson on Lesson 4: Energy management using 6D BIM data. In the context of BIM IN FACILITY MANAGEMENT & INFRASTRUCTURE ANALYTICS, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 4: energy management using 6d bim data is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of Energy management using 6D BIM data, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 5: Infrastructure performance analytics",
+        "durationMinutes": 15,
+        "content": [
+          "Welcome to this lesson on Lesson 5: Infrastructure performance analytics. In the context of BIM IN FACILITY MANAGEMENT & INFRASTRUCTURE ANALYTICS, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 5: infrastructure performance analytics is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of Infrastructure performance analytics, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 6: Case study: BIM-based FM in a smart commercial campus",
+        "durationMinutes": 20,
+        "content": [
+          "Welcome to this lesson on Lesson 6: Case study: BIM-based FM in a smart commercial campus. In the context of BIM IN FACILITY MANAGEMENT & INFRASTRUCTURE ANALYTICS, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 6: case study: bim-based fm in a smart commercial campus is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of BIM-based FM in a smart commercial campus, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      }
+    ],
+    "moduleQuiz": [
+      {
+        "question": "What is the ultimate benefit of implementing bim in facility management & infrastructure analytics?",
+        "type": "single",
+        "options": [
+          "It significantly increases manual drafting errors.",
+          "It improves coordination, efficiency, and project lifecycle management.",
+          "It prevents teams from communicating effectively.",
+          "It restricts the use of modern technology."
+        ],
+        "answer": 1
+      }
+    ]
+  },
+  {
+    "id": 41,
+    "title": "TEAM COLLABORATION & BIM WORKFLOWS",
+    "phase": "Phase 7: Project Implementation",
+    "objective": "Develop skills for collaborative work within a BIM team environment.",
+    "durationMinutes": 60,
+    "lessons": [
+      {
+        "title": "Lesson 1: Team structures in BIM projects: roles and responsibilities",
+        "durationMinutes": 20,
+        "content": [
+          "Welcome to this lesson on Lesson 1: Team structures in BIM projects: roles and responsibilities. In the context of TEAM COLLABORATION & BIM WORKFLOWS, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 1: team structures in bim projects: roles and responsibilities is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of roles and responsibilities, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 2: Collaboration tools: shared models, cloud storage, BCF",
+        "durationMinutes": 25,
+        "content": [
+          "Welcome to this lesson on Lesson 2: Collaboration tools: shared models, cloud storage, BCF. In the context of TEAM COLLABORATION & BIM WORKFLOWS, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 2: collaboration tools: shared models, cloud storage, bcf is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of shared models, cloud storage, BCF, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 3: Communication protocols within BIM teams",
+        "durationMinutes": 25,
+        "content": [
+          "Welcome to this lesson on Lesson 3: Communication protocols within BIM teams. In the context of TEAM COLLABORATION & BIM WORKFLOWS, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 3: communication protocols within bim teams is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of Communication protocols within BIM teams, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 4: Conflict resolution in multi-disciplinary teams",
+        "durationMinutes": 15,
+        "content": [
+          "Welcome to this lesson on Lesson 4: Conflict resolution in multi-disciplinary teams. In the context of TEAM COLLABORATION & BIM WORKFLOWS, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 4: conflict resolution in multi-disciplinary teams is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of Conflict resolution in multi-disciplinary teams, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 5: BIM meeting best practices and agenda setting",
+        "durationMinutes": 15,
+        "content": [
+          "Welcome to this lesson on Lesson 5: BIM meeting best practices and agenda setting. In the context of TEAM COLLABORATION & BIM WORKFLOWS, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 5: bim meeting best practices and agenda setting is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of BIM meeting best practices and agenda setting, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 6: Collaborative documentation and version control",
+        "durationMinutes": 15,
+        "content": [
+          "Welcome to this lesson on Lesson 6: Collaborative documentation and version control. In the context of TEAM COLLABORATION & BIM WORKFLOWS, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 6: collaborative documentation and version control is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of Collaborative documentation and version control, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      }
+    ],
+    "moduleQuiz": [
+      {
+        "question": "What is the ultimate benefit of implementing team collaboration & bim workflows?",
+        "type": "single",
+        "options": [
+          "It significantly increases manual drafting errors.",
+          "It improves coordination, efficiency, and project lifecycle management.",
+          "It prevents teams from communicating effectively.",
+          "It restricts the use of modern technology."
+        ],
+        "answer": 1
+      }
+    ]
+  },
+  {
+    "id": 42,
+    "title": "BIM DOCUMENTATION, REPORTING & COMMUNICATION",
+    "phase": "Phase 7: Project Implementation",
+    "objective": "Develop professional documentation and communication skills for BIM project environments.",
+    "durationMinutes": 60,
+    "lessons": [
+      {
+        "title": "Lesson 1: Types of BIM project documents: BEP, EIR, CIC BIM Protocol",
+        "durationMinutes": 25,
+        "content": [
+          "Welcome to this lesson on Lesson 1: Types of BIM project documents: BEP, EIR, CIC BIM Protocol. In the context of BIM DOCUMENTATION, REPORTING & COMMUNICATION, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 1: types of bim project documents: bep, eir, cic bim protocol is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of BEP, EIR, CIC BIM Protocol, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 2: Writing professional BIM reports and coordination minutes",
+        "durationMinutes": 20,
+        "content": [
+          "Welcome to this lesson on Lesson 2: Writing professional BIM reports and coordination minutes. In the context of BIM DOCUMENTATION, REPORTING & COMMUNICATION, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 2: writing professional bim reports and coordination minutes is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of Writing professional BIM reports and coordination minutes, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 3: Preparing model audit reports",
+        "durationMinutes": 25,
+        "content": [
+          "Welcome to this lesson on Lesson 3: Preparing model audit reports. In the context of BIM DOCUMENTATION, REPORTING & COMMUNICATION, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 3: preparing model audit reports is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of Preparing model audit reports, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 4: Creating BIM progress reports for clients",
+        "durationMinutes": 15,
+        "content": [
+          "Welcome to this lesson on Lesson 4: Creating BIM progress reports for clients. In the context of BIM DOCUMENTATION, REPORTING & COMMUNICATION, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 4: creating bim progress reports for clients is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of Creating BIM progress reports for clients, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 5: Drawing extraction and sheet production from BIM",
+        "durationMinutes": 25,
+        "content": [
+          "Welcome to this lesson on Lesson 5: Drawing extraction and sheet production from BIM. In the context of BIM DOCUMENTATION, REPORTING & COMMUNICATION, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 5: drawing extraction and sheet production from bim is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of Drawing extraction and sheet production from BIM, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 6: Professional email and communication in engineering projects",
+        "durationMinutes": 15,
+        "content": [
+          "Welcome to this lesson on Lesson 6: Professional email and communication in engineering projects. In the context of BIM DOCUMENTATION, REPORTING & COMMUNICATION, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 6: professional email and communication in engineering projects is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of Professional email and communication in engineering projects, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      }
+    ],
+    "moduleQuiz": [
+      {
+        "question": "What is the ultimate benefit of implementing bim documentation, reporting & communication?",
+        "type": "single",
+        "options": [
+          "It significantly increases manual drafting errors.",
+          "It improves coordination, efficiency, and project lifecycle management.",
+          "It prevents teams from communicating effectively.",
+          "It restricts the use of modern technology."
+        ],
+        "answer": 1
+      }
+    ]
+  },
+  {
+    "id": 43,
+    "title": "PRESENTATION SKILLS FOR ENGINEERS",
+    "phase": "Phase 7: Project Implementation",
+    "objective": "Develop strong technical presentation skills for engineering and BIM contexts.",
+    "durationMinutes": 60,
+    "lessons": [
+      {
+        "title": "Lesson 1: Structuring a technical presentation: problem-solution-impact",
+        "durationMinutes": 15,
+        "content": [
+          "Welcome to this lesson on Lesson 1: Structuring a technical presentation: problem-solution-impact. In the context of PRESENTATION SKILLS FOR ENGINEERS, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 1: structuring a technical presentation: problem-solution-impact is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of problem-solution-impact, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 2: Visual communication: diagrams, infographics, model screenshots",
+        "durationMinutes": 25,
+        "content": [
+          "Welcome to this lesson on Lesson 2: Visual communication: diagrams, infographics, model screenshots. In the context of PRESENTATION SKILLS FOR ENGINEERS, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 2: visual communication: diagrams, infographics, model screenshots is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of diagrams, infographics, model screenshots, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 3: Presenting to clients, stakeholders, and management",
+        "durationMinutes": 20,
+        "content": [
+          "Welcome to this lesson on Lesson 3: Presenting to clients, stakeholders, and management. In the context of PRESENTATION SKILLS FOR ENGINEERS, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 3: presenting to clients, stakeholders, and management is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of Presenting to clients, stakeholders, and management, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 4: Handling Q&A in technical presentations",
+        "durationMinutes": 20,
+        "content": [
+          "Welcome to this lesson on Lesson 4: Handling Q&A in technical presentations. In the context of PRESENTATION SKILLS FOR ENGINEERS, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 4: handling q&a in technical presentations is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of Handling Q&A in technical presentations, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 5: Digital presentation tools and best practices",
+        "durationMinutes": 15,
+        "content": [
+          "Welcome to this lesson on Lesson 5: Digital presentation tools and best practices. In the context of PRESENTATION SKILLS FOR ENGINEERS, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 5: digital presentation tools and best practices is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of Digital presentation tools and best practices, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 6: Case study presentation analysis: what made it excellent",
+        "durationMinutes": 20,
+        "content": [
+          "Welcome to this lesson on Lesson 6: Case study presentation analysis: what made it excellent. In the context of PRESENTATION SKILLS FOR ENGINEERS, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 6: case study presentation analysis: what made it excellent is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of what made it excellent, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      }
+    ],
+    "moduleQuiz": [
+      {
+        "question": "What is the ultimate benefit of implementing presentation skills for engineers?",
+        "type": "single",
+        "options": [
+          "It significantly increases manual drafting errors.",
+          "It improves coordination, efficiency, and project lifecycle management.",
+          "It prevents teams from communicating effectively.",
+          "It restricts the use of modern technology."
+        ],
+        "answer": 1
+      }
+    ]
+  },
+  {
+    "id": 44,
+    "title": "CASE STUDY ANALYSIS: REAL-WORLD BIM PROJECTS",
+    "phase": "Phase 7: Project Implementation",
+    "objective": "Develop critical analysis skills by examining real-world BIM implementation case studies.",
+    "durationMinutes": 60,
+    "lessons": [
+      {
+        "title": "Lesson 1: How to analyze a BIM project case study",
+        "durationMinutes": 20,
+        "content": [
+          "Welcome to this lesson on Lesson 1: How to analyze a BIM project case study. In the context of CASE STUDY ANALYSIS: REAL-WORLD BIM PROJECTS, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 1: how to analyze a bim project case study is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of How to analyze a BIM project case study, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 2: Case study: Mumbai Coastal Road BIM Implementation",
+        "durationMinutes": 25,
+        "content": [
+          "Welcome to this lesson on Lesson 2: Case study: Mumbai Coastal Road BIM Implementation. In the context of CASE STUDY ANALYSIS: REAL-WORLD BIM PROJECTS, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 2: case study: mumbai coastal road bim implementation is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of Mumbai Coastal Road BIM Implementation, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 3: Case study: Bangalore Metro Phase 2",
+        "durationMinutes": 15,
+        "content": [
+          "Welcome to this lesson on Lesson 3: Case study: Bangalore Metro Phase 2. In the context of CASE STUDY ANALYSIS: REAL-WORLD BIM PROJECTS, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 3: case study: bangalore metro phase 2 is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of Bangalore Metro Phase 2, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 4: Case study: Amaravati Capital City Project",
+        "durationMinutes": 15,
+        "content": [
+          "Welcome to this lesson on Lesson 4: Case study: Amaravati Capital City Project. In the context of CASE STUDY ANALYSIS: REAL-WORLD BIM PROJECTS, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 4: case study: amaravati capital city project is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of Amaravati Capital City Project, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 5: Case study: Dubai Expo 2020 BIM workflow",
+        "durationMinutes": 20,
+        "content": [
+          "Welcome to this lesson on Lesson 5: Case study: Dubai Expo 2020 BIM workflow. In the context of CASE STUDY ANALYSIS: REAL-WORLD BIM PROJECTS, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 5: case study: dubai expo 2020 bim workflow is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of Dubai Expo 2020 BIM workflow, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 6: Lessons learned and industry best practices",
+        "durationMinutes": 25,
+        "content": [
+          "Welcome to this lesson on Lesson 6: Lessons learned and industry best practices. In the context of CASE STUDY ANALYSIS: REAL-WORLD BIM PROJECTS, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 6: lessons learned and industry best practices is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of Lessons learned and industry best practices, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      }
+    ],
+    "moduleQuiz": [
+      {
+        "question": "What is the ultimate benefit of implementing case study analysis: real-world bim projects?",
+        "type": "single",
+        "options": [
+          "It significantly increases manual drafting errors.",
+          "It improves coordination, efficiency, and project lifecycle management.",
+          "It prevents teams from communicating effectively.",
+          "It restricts the use of modern technology."
+        ],
+        "answer": 1
+      }
+    ]
+  },
+  {
+    "id": 45,
+    "title": "INDUSTRY READINESS, CAREER PLANNING & CAPSTONE LAUNCH",
+    "phase": "Phase 7: Project Implementation",
+    "objective": "Consolidate learning, assess industry readiness, and formally launch the Capstone Project.",
+    "durationMinutes": 60,
+    "lessons": [
+      {
+        "title": "Lesson 1: Self-assessment: BIM competency checklist",
+        "durationMinutes": 25,
+        "content": [
+          "Welcome to this lesson on Lesson 1: Self-assessment: BIM competency checklist. In the context of INDUSTRY READINESS, CAREER PLANNING & CAPSTONE LAUNCH, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 1: self-assessment: bim competency checklist is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of BIM competency checklist, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 2: Building your BIM portfolio: what to include",
+        "durationMinutes": 15,
+        "content": [
+          "Welcome to this lesson on Lesson 2: Building your BIM portfolio: what to include. In the context of INDUSTRY READINESS, CAREER PLANNING & CAPSTONE LAUNCH, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 2: building your bim portfolio: what to include is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of what to include, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 3: BIM career pathways: Modeler, Coordinator, Manager, Consultant",
+        "durationMinutes": 25,
+        "content": [
+          "Welcome to this lesson on Lesson 3: BIM career pathways: Modeler, Coordinator, Manager, Consultant. In the context of INDUSTRY READINESS, CAREER PLANNING & CAPSTONE LAUNCH, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 3: bim career pathways: modeler, coordinator, manager, consultant is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of Modeler, Coordinator, Manager, Consultant, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 4: Resume building for BIM and digital construction roles",
+        "durationMinutes": 25,
+        "content": [
+          "Welcome to this lesson on Lesson 4: Resume building for BIM and digital construction roles. In the context of INDUSTRY READINESS, CAREER PLANNING & CAPSTONE LAUNCH, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 4: resume building for bim and digital construction roles is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of Resume building for BIM and digital construction roles, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 5: LinkedIn and professional profile optimization",
+        "durationMinutes": 25,
+        "content": [
+          "Welcome to this lesson on Lesson 5: LinkedIn and professional profile optimization. In the context of INDUSTRY READINESS, CAREER PLANNING & CAPSTONE LAUNCH, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 5: linkedin and professional profile optimization is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of LinkedIn and professional profile optimization, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      },
+      {
+        "title": "Lesson 6: Capstone project briefing: teams, roles, deliverables, timeline",
+        "durationMinutes": 15,
+        "content": [
+          "Welcome to this lesson on Lesson 6: Capstone project briefing: teams, roles, deliverables, timeline. In the context of INDUSTRY READINESS, CAREER PLANNING & CAPSTONE LAUNCH, this topic plays a fundamental role in modern civil engineering and BIM workflows.",
+          "Understanding lesson 6: capstone project briefing: teams, roles, deliverables, timeline is essential for comprehensive project management and delivery. This lesson bridges the gap between theoretical knowledge and practical, on-site application. It requires careful coordination of resources, personnel, and digital information.",
+          "As the industry moves towards more integrated delivery methods, the ability to effectively manage {lesson_title.lower()} within a BIM ecosystem becomes a major competitive advantage. This approach ensures transparency, accountability, and a higher quality of final construction.",
+          "By the end of this lesson, you should be able to articulate the core concepts and apply them to standard industry scenarios, preparing you for more advanced responsibilities in your career."
+        ],
+        "quiz": [
+          {
+            "question": "In the context of teams, roles, deliverables, timeline, which approach best aligns with industry best practices?",
+            "options": [
+              "Relying solely on outdated manual processes",
+              "Integrating digital workflows and continuous coordination",
+              "Isolating data and avoiding inter-disciplinary communication",
+              "Ignoring project specific standards and requirements"
+            ],
+            "answer": 1
+          }
+        ]
+      }
+    ],
+    "moduleQuiz": [
+      {
+        "question": "What is the ultimate benefit of implementing industry readiness, career planning & capstone launch?",
+        "type": "single",
+        "options": [
+          "It significantly increases manual drafting errors.",
+          "It improves coordination, efficiency, and project lifecycle management.",
+          "It prevents teams from communicating effectively.",
+          "It restricts the use of modern technology."
+        ],
+        "answer": 1
+      }
+    ]
+  }
+]
