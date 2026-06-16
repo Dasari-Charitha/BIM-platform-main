@@ -44,15 +44,17 @@ export type Database = {
           email: string
           full_name: string
           id: string
+          updated_at: string
         }
         Insert: {
           college_name?: string | null
           contact?: string | null
           created_at?: string
           date_of_birth?: string | null
-          email: string
-          full_name: string
+          email?: string
+          full_name?: string
           id: string
+          updated_at?: string
         }
         Update: {
           college_name?: string | null
@@ -62,13 +64,12 @@ export type Database = {
           email?: string
           full_name?: string
           id?: string
+          updated_at?: string
         }
         Relationships: []
       }
       progress: {
         Row: {
-          created_at: string
-          id: string
           notes: string | null
           score: number
           student_id: string
@@ -76,8 +77,6 @@ export type Database = {
           updated_at: string
         }
         Insert: {
-          created_at?: string
-          id?: string
           notes?: string | null
           score?: number
           student_id: string
@@ -85,8 +84,6 @@ export type Database = {
           updated_at?: string
         }
         Update: {
-          created_at?: string
-          id?: string
           notes?: string | null
           score?: number
           student_id?: string
@@ -97,16 +94,19 @@ export type Database = {
       }
       user_roles: {
         Row: {
+          created_at: string
           id: string
           role: Database["public"]["Enums"]["app_role"]
           user_id: string
         }
         Insert: {
+          created_at?: string
           id?: string
-          role: Database["public"]["Enums"]["app_role"]
+          role?: Database["public"]["Enums"]["app_role"]
           user_id: string
         }
         Update: {
+          created_at?: string
           id?: string
           role?: Database["public"]["Enums"]["app_role"]
           user_id?: string

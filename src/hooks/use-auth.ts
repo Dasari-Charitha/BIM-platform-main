@@ -1,8 +1,22 @@
 import { useEffect, useState } from "react";
-import { isSupabaseConfigured, supabase } from "@/integrations/supabase/client";
+import { supabase } from "@/integrations/supabase/client";
+
+const isSupabaseConfigured = true;
 import type { Session, User } from "@supabase/supabase-js";
 
 export type AppRole = "admin" | "student";
+
+export const ADMIN_LOCAL_KEY = "skillarion_admin_session";
+export const ADMIN_LOCAL_EMAIL = "skillariondevelopment9@gmail.com";
+
+function readLocalAdmin(): boolean {
+  if (typeof window === "undefined") return false;
+  try {
+    return window.localStorage.getItem(ADMIN_LOCAL_KEY) === "1";
+  } catch {
+    return false;
+  }
+}
 
 export function useAuth() {
   const [session, setSession] = useState<Session | null>(null);
@@ -15,6 +29,7 @@ export function useAuth() {
       setLoading(false);
       return;
     }
+
 
     const { data: sub } = supabase.auth.onAuthStateChange((_event, s) => {
       setSession(s);
@@ -54,9 +69,18 @@ export function useAuth() {
   }
 
   async function signOut() {
+    if (typeof window !== "undefined") {
+      try {
+        window.localStorage.removeItem(ADMIN_LOCAL_KEY);
+      } catch {
+        // ignore
+      }
+    }
     if (isSupabaseConfigured) {
       await supabase.auth.signOut();
     }
+    setUser(null);
+    setSession(null);
     setRole(null);
   }
 
